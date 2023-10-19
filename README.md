@@ -12,6 +12,6 @@ GitHub-Flow
 
 Aufgaben:
 Group-Admin (Deiac)
-Datenbank (Berchti/Kimmi)
+Datenbank (Berchti/Kimmi/Deiac)
 Design mit WPF (Halbman/Kevin)
-C#(Deiac)
+C#(Deiac/Berchti)
