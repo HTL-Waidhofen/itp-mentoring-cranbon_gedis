@@ -1,7 +1,7 @@
-﻿<Application x:Class="Mentoring_cranbon_gedis.App"
+﻿<Application x:Class="ITP_Mentoring_WPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Mentoring_cranbon_gedis"
+             xmlns:local="clr-namespace:ITP_Mentoring_WPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Mentoring_cranbon_gedis
+namespace ITP_Mentoring_WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
