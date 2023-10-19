@@ -7,5 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
+        <Frame x:Name="rahmen_frame" NavigationUIVisibility="Hidden"></Frame>
+        <StackPanel>
+            <Menu DockPanel.Dock="Top" Width="800" Height="20">
+                <MenuItem Header="Anmeldung"></MenuItem>
+            </Menu>
+        </StackPanel>
+        
     </DockPanel>
+    
 </Window>
