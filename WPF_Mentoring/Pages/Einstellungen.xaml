@@ -1,0 +1,114 @@
+﻿<Page x:Class="WPF_Mentoring.Pages.Einstellungen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_Mentoring.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Einstellungen">
+
+    <DockPanel Background="White">
+        <TabControl>
+            <!-- Tab für Allgemeine Einstellungen -->
+            <TabItem Header="Allgemein">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Allgemeine Einstellungen" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" />
+
+                    <CheckBox Content="Automatische Updates aktivieren" Grid.Row="1" Margin="0,0,0,5" />
+                    <CheckBox Content="Benachrichtigungen anzeigen" Grid.Row="2" Margin="0,0,0,5" />
+                    <!-- Weitere allgemeine Einstellungen -->
+                </Grid>
+            </TabItem>
+
+            <!-- Tab für Benutzerprofile -->
+            <TabItem Header="Benutzer">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Benutzerprofileinstellungen" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" />
+
+                    <StackPanel Grid.Row="1" Margin="0,0,0,10">
+                        <TextBlock Text="Benutzername" />
+                        <TextBox Text="Benutzer123" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" Margin="0,0,0,10">
+                        <TextBlock Text="Passwort ändern" />
+                        <PasswordBox PasswordChar="*" />
+                        <PasswordBox PasswordChar="*" />
+                    </StackPanel>
+                    <!-- Weitere Benutzereinstellungen -->
+                </Grid>
+            </TabItem>
+
+            <!-- Tab für App-Einstellungen -->
+            <TabItem Header="App">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="App-Einstellungen" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" />
+
+                    <StackPanel Grid.Row="1" Margin="0,0,0,10">
+                        <TextBlock Text="Lautstärke" />
+                        <Slider Width="200" Minimum="0" Maximum="100" Value="50" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" Margin="0,0,0,10">
+                        <TextBlock Text="Sprache" />
+                        <ComboBox SelectedIndex="0">
+                            <ComboBoxItem Content="Deutsch" />
+                            <ComboBoxItem Content="Englisch" />
+                            <ComboBoxItem Content="Spanisch" />
+                            <!-- Weitere Sprachoptionen -->
+                        </ComboBox>
+                    </StackPanel>
+                    <!-- Weitere App-Einstellungen -->
+                </Grid>
+            </TabItem>
+
+            <!-- Tab für Erweiterte Einstellungen -->
+            <TabItem Header="Erweitert">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Erweiterte Einstellungen" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" />
+
+                    <StackPanel Grid.Row="1" Margin="0,0,0,10">
+                        <TextBlock Text="Maximale gleichzeitige Downloads" />
+                        <TextBox Text="5" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" Margin="0,0,0,10">
+                        <TextBlock Text="Proxy-Einstellungen" />
+                        <CheckBox Content="Proxy verwenden" />
+                        <StackPanel Margin="20,0,0,0">
+                            <TextBlock Text="Proxy-Server" />
+                            <TextBox Text="proxy.example.com" />
+                        </StackPanel>
+                    </StackPanel>
+                    <!-- Weitere erweiterte Einstellungen -->
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </DockPanel>
+</Page>

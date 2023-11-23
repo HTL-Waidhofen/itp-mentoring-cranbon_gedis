@@ -1,0 +1,56 @@
+﻿<Page x:Class="WPF_Mentoring.Pages.Anmeldung"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_Mentoring.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Anmeldung">
+
+    <DockPanel Background="White">
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top">
+                <DockPanel DockPanel.Dock="Top">
+                    <Menu DockPanel.Dock="Top" Width="800" Height="20">
+                        <MenuItem Header="Anmeldung"></MenuItem>
+                    </Menu>
+                </DockPanel>
+
+                <DockPanel HorizontalAlignment="Center">
+                    <TextBlock HorizontalAlignment="Center" FontSize="50">HTL-Mentoring</TextBlock>
+                </DockPanel>
+
+                <DockPanel HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20 0 0">
+                        <TextBlock>E-Mail:</TextBlock>
+                        <TextBox Margin="33 0 0 0" Width="150" x:Name="email_Textbox" IsEnabled="True"></TextBox>
+                    </StackPanel>
+                </DockPanel>
+
+                <DockPanel HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
+                        <TextBlock>Passwort:</TextBlock>
+                        <PasswordBox Margin="20 0 0 0" Width="150" x:Name="passwort_Textbox"></PasswordBox>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
+                        <Button Margin="70 0 0 0" Width="150" Click="anmeldung_Click">Anmeldung</Button>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
+                        <Button Margin="70 0 0 0" Width="150" Click="registrierung">zur Registrierung</Button>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
+                        <TextBlock Margin="80 0 0 0">Passwort Vergessen</TextBlock>
+                        <CheckBox Margin="25 0 0 0"></CheckBox>
+                    </StackPanel>
+                </DockPanel>
+            </StackPanel>
+        </DockPanel>
+    </DockPanel>
+</Page>
