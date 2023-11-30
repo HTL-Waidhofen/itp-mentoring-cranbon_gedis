@@ -35,11 +35,13 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">
-                    <TextBox x:Name="searchTextBox" Margin="10" TextChanged="SearchBox_TextChanged" Width="200px"/>
 
-                    <ListBox Margin="100,10,10,10" Width="500" Height="400" x:Name="subjects_Listbox" SelectionMode="Multiple">
-
-                    </ListBox>
+                    <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview"></ui:TextBox>
+                    <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_Listbox" SelectedItemChanged="myTreeView_SelectedItemChanged" >
+                        <TreeViewItem Header="Informatik" IsExpanded="False">
+                            <TreeViewItem Header="Feature Schedule"/>
+                        </TreeViewItem>
+                    </TreeView>
                 </StackPanel>
             </StackPanel>
 

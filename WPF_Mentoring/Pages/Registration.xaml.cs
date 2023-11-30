@@ -26,15 +26,15 @@ namespace WPF_Mentoring.Pages
         public Registration()
         {
             InitializeComponent();
-            GetFaecher();
+           // GetFaecher();
         }
 
-        private void GetFaecher()
+        /*private void GetFaecher()
         {
             faecher.Add("Mathmatik");
             faecher.Add("Deutsch");
             UpList();
-        }
+        }*/
 
         private void MenuItem_Anmeldung_Click(object sender, RoutedEventArgs e)
         {
@@ -43,7 +43,7 @@ namespace WPF_Mentoring.Pages
 
 
 
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e) // code for searching items in listbox
+        /*private void SearchBox_TextChanged(object sender, TextChangedEventArgs e) // code for searching items in listbox
         {
             if (searchTextBox.Text != "")
             {
@@ -72,6 +72,25 @@ namespace WPF_Mentoring.Pages
             {
                 subjects_Listbox.Items.Add(s);
             }
+        }*/
+        private List<TreeViewItem> selectedItems = new List<TreeViewItem>();
+
+        private void myTreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            TreeViewItem selectedItem = subjects_Listbox.SelectedItem as TreeViewItem;
+
+            if (selectedItem != null)
+            {
+                if (selectedItems.Contains(selectedItem))
+                {
+                    selectedItems.Remove(selectedItem);
+                }
+                else
+                {
+                    selectedItems.Add(selectedItem);
+                }
+            }
         }
+
     }
 }
