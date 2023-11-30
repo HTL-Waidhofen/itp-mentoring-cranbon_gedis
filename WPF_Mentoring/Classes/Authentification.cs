@@ -5,26 +5,22 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-<<<<<<< HEAD
 using System.Data.SQLite;
 using System.Text.RegularExpressions;
-=======
 using System.Net;
 using System.Net.Mail;
 using System.Drawing;
->>>>>>> 6a1223077a19db16ea879e9724af353e831fe4f6
 
 namespace WPF_Mentoring.Classes
 {
     public class Authentification
     {
-<<<<<<< HEAD
         public static bool IsValidEmail(string email)
         {
             string pattern = @"^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$";
-            return Regex.IsMatch(email, pattern); 
+            return Regex.IsMatch(email, pattern);
         }
-        public bool IsCorrectPassword(string password,string email)
+        public bool IsCorrectPassword(string password, string email)
         {
             string connectionString = "Data Source=Mentoring.db;Version=3;";
 
@@ -48,10 +44,10 @@ namespace WPF_Mentoring.Classes
                         }
                     }
                 }
-=======
+            }
+        }
         public static string GetAuthenCode()
         {
-            //schreibe mir einen code der eine authentifizierung durchführt und den code zurückgibt es können zahlen und buchstaben und .#&/ verwendet werden
             Random rnd = new Random();
             string authenSymbols = "qwertzuiopasdfghjklyxcvbnm1234567890#.-/";
             int length = 6;
@@ -87,10 +83,10 @@ namespace WPF_Mentoring.Classes
             })
             {
                 smtp.Send(message);
->>>>>>> 6a1223077a19db16ea879e9724af353e831fe4f6
             }
         }
     }
-    
 }
+    
+
 
