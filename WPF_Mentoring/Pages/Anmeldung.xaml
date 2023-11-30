@@ -3,12 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:local="clr-namespace:WPF_Mentoring.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Anmeldung">
+    
 
-    <DockPanel Background="White">
+    <DockPanel Background="Transparent">
         <DockPanel>
             <StackPanel DockPanel.Dock="Top">
                 <DockPanel DockPanel.Dock="Top">
@@ -36,7 +38,9 @@
                 </DockPanel>
                 <DockPanel HorizontalAlignment="Center">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
-                        <Button Margin="70 0 0 0" Width="150" Click="anmeldung_Click">Anmeldung</Button>
+                        <ui:Button Appearance="Primary" Margin="70 0 0 0" Width="150" Click="anmeldung_Click">Anmeldung</ui:Button>
+                        
+                        
                     </StackPanel>
                 </DockPanel>
                 <DockPanel HorizontalAlignment="Center">
