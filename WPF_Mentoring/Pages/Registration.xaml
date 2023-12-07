@@ -36,8 +36,6 @@
 
                     <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview" SelectionChanged="search_treeview_SelectionChanged"></ui:TextBox>
                     <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_TreeView" SelectedItemChanged="subjects_TreeView_SelectedItemChanged" >
-                        <TreeViewItem Header="Informatik" IsExpanded="False">
-                            <TreeViewItem Header="Feature Schedule"/>
                         <TreeViewItem Header="Mechatronik Fachschule" IsExpanded="False">
                             <TreeViewItem Header="Deutsch und Kommunikation"/>
                             <TreeViewItem Header="Englisch"/>
@@ -122,7 +120,7 @@
                             <TreeViewItem Header="Netzwerktechnik"/>
                             <TreeViewItem Header="IT-Sicherheit"/>
                         </TreeViewItem>
-                        </TreeViewItem>
+                        
                     </TreeView>
                 </StackPanel>
             </StackPanel>
