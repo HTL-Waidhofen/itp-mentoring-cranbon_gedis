@@ -36,8 +36,8 @@
 
                 <StackPanel Orientation="Vertical">
 
-                    <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview"></ui:TextBox>
-                    <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_Listbox" SelectedItemChanged="myTreeView_SelectedItemChanged" >
+                    <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview" SelectionChanged="search_treeview_SelectionChanged"></ui:TextBox>
+                    <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_TreeView" SelectedItemChanged="subjects_TreeView_SelectedItemChanged" >
                         <TreeViewItem Header="Informatik" IsExpanded="False">
                             <TreeViewItem Header="Feature Schedule"/>
                         </TreeViewItem>
