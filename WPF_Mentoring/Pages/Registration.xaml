@@ -36,10 +36,104 @@
 
                 <StackPanel Orientation="Vertical">
 
-                    <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview"></ui:TextBox>
-                    <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_Listbox" SelectedItemChanged="myTreeView_SelectedItemChanged" >
+<<<<<<< HEAD
+                    <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview" SelectionChanged="search_treeview_SelectionChanged"></ui:TextBox>
+                    <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_TreeView" SelectedItemChanged="subjects_TreeView_SelectedItemChanged" >
+<<<<<<< HEAD
+=======
                         <TreeViewItem Header="Informatik" IsExpanded="False">
                             <TreeViewItem Header="Feature Schedule"/>
+=======
+                    <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview"></ui:TextBox>
+                    <TreeView AllowDrop="True" Width="500" Height="400" x:Name="subjects_Listbox" SelectedItemChanged="myTreeView_SelectedItemChanged">
+>>>>>>> 8f4cd41548a91b1d3c6b50eba28dfe32dd0e0f8d
+                        <TreeViewItem Header="Mechatronik Fachschule" IsExpanded="False">
+                            <TreeViewItem Header="Deutsch und Kommunikation"/>
+                            <TreeViewItem Header="Englisch"/>
+                            <TreeViewItem Header="GGP"/>
+                            <TreeViewItem Header="Angewandte Mathematik"/>
+                            <TreeViewItem Header="Naturwissenschaften Grundlagen"/>
+                            <TreeViewItem Header="Angewandte Informatik"/>
+                            <TreeViewItem Header="Unternehmensführung"/>
+                            <TreeViewItem Header="Konstruktion und Projektmanagement"/>
+                            <TreeViewItem Header="Mechatronische Systeme"/>
+                            <TreeViewItem Header="Fertigungstechnik und Mechanik"/>
+                            <TreeViewItem Header="Informationstechnik und Automatisierung"/>
+                            <TreeViewItem Header="Produktionstechnik"/>
+                            <TreeViewItem Header="Laboratorium"/>
+                            <TreeViewItem Header="Werkstätte und Produktionstechnik"/>
+                        </TreeViewItem>
+
+                        <TreeViewItem Header="Maschinenbau" IsExpanded="False">
+                            <TreeViewItem Header="Deutsch"/>
+                            <TreeViewItem Header="Englisch"/>
+                            <TreeViewItem Header="GGP"/>
+                            <TreeViewItem Header="Wirtschaft und Recht"/>
+                            <TreeViewItem Header="Angewandte Mathematik"/>
+                            <TreeViewItem Header="Naturwissenschaften"/>
+                            <TreeViewItem Header="Konstruktion und Projektmanagement"/>
+                            <TreeViewItem Header="Technische Mechanik und Berechnung"/>
+                            <TreeViewItem Header="Fertigungstechnik"/>
+                            <TreeViewItem Header="Maschinen und Anlagen"/>
+                            <TreeViewItem Header="Automatisierungstechnik"/>
+                            <TreeViewItem Header="Elektrotechnik und Elektronik"/>
+                            <TreeViewItem Header="Angewandte Informatik und Informationstechnik"/>
+                            <TreeViewItem Header="Robotik und Prozessdatenverarbeitung"/>
+                            <TreeViewItem Header="Laboratorium"/>
+                        </TreeViewItem>
+
+                        <TreeViewItem Header="Elektrotechnik" IsExpanded="False">
+                            <TreeViewItem Header="Deutsch"/>
+                            <TreeViewItem Header="Englisch"/>
+                            <TreeViewItem Header="GGP"/>
+                            <TreeViewItem Header="Angewandte Mathematik"/>
+                            <TreeViewItem Header="Naturwissenschaften"/>
+                            <TreeViewItem Header="Wirtschaft und Recht"/>
+                            <TreeViewItem Header="Energiesysteme"/>
+                            <TreeViewItem Header="Automatisierungstechnik"/>
+                            <TreeViewItem Header="Antriebstechnik"/>
+                            <TreeViewItem Header="Industrieelektronik"/>
+                            <TreeViewItem Header="Fachspezifische Informationstechnik"/>
+                            <TreeViewItem Header="Computergeschützte Projektentwicklung"/>
+                            <TreeViewItem Header="Laboratorium"/>
+                            <TreeViewItem Header="Werkstätte und Produktionstechnik"/>
+                            <TreeViewItem Header="Schulautonome Vertiefungsgegenstände"/>
+                        </TreeViewItem>
+
+                        <TreeViewItem Header="Wirtschaftsingenieure – Maschinenbau" IsExpanded="False">
+                            <TreeViewItem Header="Deutsch"/>
+                            <TreeViewItem Header="Englisch"/>
+                            <TreeViewItem Header="GGP"/>
+                            <TreeViewItem Header="Angewandte Mathematik"/>
+                            <TreeViewItem Header="Naturwissenschaften"/>
+                            <TreeViewItem Header="Unternehmensführung u. Wirtschaftsrecht mit Übungen in (Business Englisch)"/>
+                            <TreeViewItem Header="Betriebstechnik"/>
+                            <TreeViewItem Header="Informatik und Informationssysteme"/>
+                            <TreeViewItem Header="Konstruktion und Berechnung"/>
+                            <TreeViewItem Header="Werkstoff- und Fertigungstechnik"/>
+                            <TreeViewItem Header="Maschinen, Anlagen, Automatisierung"/>
+                            <TreeViewItem Header="Laboratorium"/>
+                        </TreeViewItem>
+
+                        <TreeViewItem Header="Informationstechnik" IsExpanded="False">
+                            <TreeViewItem Header="Deutsch"/>
+                            <TreeViewItem Header="Englisch"/>
+                            <TreeViewItem Header="GGP"/>
+                            <TreeViewItem Header="Angewandte Mathematik"/>
+                            <TreeViewItem Header="Naturwissenschaften"/>
+                            <TreeViewItem Header="Wirtschaft und Recht"/>
+                            <TreeViewItem Header="Softwareentwicklung"/>
+                            <TreeViewItem Header="Informationstechnische Projekte"/>
+                            <TreeViewItem Header="Informationssysteme"/>
+                            <TreeViewItem Header="Systemtechnik"/>
+                            <TreeViewItem Header="Cloud Computing und industrielle Technologien"/>
+                            <TreeViewItem Header="Medientechnik"/>
+                            <TreeViewItem Header="Netzwerktechnik"/>
+                            <TreeViewItem Header="IT-Sicherheit"/>
+<<<<<<< HEAD
+=======
+>>>>>>> 3cf12671f03d49255162017ddf224942b4448bd2
+>>>>>>> 8f4cd41548a91b1d3c6b50eba28dfe32dd0e0f8d
                         </TreeViewItem>
                     </TreeView>
                 </StackPanel>
