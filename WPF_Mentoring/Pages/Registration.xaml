@@ -27,11 +27,11 @@
                     <Label>Passwort erneut eingeben:</Label>
                     <PasswordBox x:Name="passwortCheck_Passwordbox" IsEnabled="True"></PasswordBox>
                     <StackPanel Margin="10" Orientation="Horizontal">
-                        <Label Margin="10,12,10,10">Mentor</Label>
+                        <Label Margin="75,12,10,10">Mentor</Label>
                         <CheckBox Margin="6"></CheckBox>
                         
                     </StackPanel>
-                    <ui:Button Content="Registrieren" Icon="Fluent24" Appearance="Primary" />
+                    <ui:Button Content="Registrieren" Icon="Person12" Appearance="Primary" Margin="65,10,10,10" />
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
 
