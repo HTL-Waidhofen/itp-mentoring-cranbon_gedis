@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:WPF_Mentoring.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Registration" Background="transparent">
+      Title="Registration" Background="#272f34">
     <Page.Resources></Page.Resources>
     <Viewbox Stretch="Fill" StretchDirection="Both">
         <DockPanel>
@@ -23,19 +23,20 @@
                     <Label>Email:</Label>
                     <TextBox x:Name="eMail_Textbox"></TextBox>
                     <Label>Passwort:</Label>
-                    <PasswordBox x:Name="passwort_Passwordbox" IsEnabled="True" Height="20" ></PasswordBox>
+                    <PasswordBox x:Name="passwort_Passwordbox" IsEnabled="True" ></PasswordBox>
                     <Label>Passwort erneut eingeben:</Label>
-                    <PasswordBox x:Name="passwortCheck_Passwordbox" IsEnabled="True" Height="20"></PasswordBox>
+                    <PasswordBox x:Name="passwortCheck_Passwordbox" IsEnabled="True"></PasswordBox>
                     <StackPanel Margin="10" Orientation="Horizontal">
-                        <Label>Mentor</Label>
+                        <Label Margin="10,12,10,10">Mentor</Label>
                         <CheckBox Margin="6"></CheckBox>
-                        <ui:Button Content="WPF UI button" Icon="Fluent24" />
+                        
                     </StackPanel>
+                    <ui:Button Content="Registrieren" Icon="Fluent24" Appearance="Primary" />
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
 
-                    <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview" SelectionChanged="search_treeview_SelectionChanged"></ui:TextBox>
-                    <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_TreeView" SelectedItemChanged="subjects_TreeView_SelectedItemChanged" >
+                    <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview" SelectionChanged="search_treeview_SelectionChanged" Margin="25,15,15,15" ></ui:TextBox>
+                    <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_TreeView" SelectedItemChanged="subjects_TreeView_SelectedItemChanged" Margin="25,15,15,15">
                         <TreeViewItem Header="Mechatronik Fachschule" IsExpanded="False">
                             <TreeViewItem Header="Deutsch und Kommunikation"/>
                             <TreeViewItem Header="Englisch"/>
@@ -127,3 +128,5 @@
         </DockPanel>
     </Viewbox>
 </Page>
+    
+    
