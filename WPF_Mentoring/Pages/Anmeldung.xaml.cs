@@ -25,7 +25,7 @@ namespace WPF_Mentoring.Pages
         {
             InitializeComponent();
         }
-        private void anmeldung_Click(object sender, RoutedEventArgs e)
+        private void anmeldung(object sender, RoutedEventArgs e)
         {
             main.rahmen_frame.Content = new Übersicht();
         }
