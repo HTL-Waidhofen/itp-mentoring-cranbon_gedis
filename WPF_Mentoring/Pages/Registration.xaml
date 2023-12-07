@@ -36,12 +36,18 @@
 
                     <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview" SelectionChanged="search_treeview_SelectionChanged"></ui:TextBox>
                     <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_TreeView" SelectedItemChanged="subjects_TreeView_SelectedItemChanged" >
-                        <TreeViewItem Header="Mechatronik Fachschule" IsExpanded="False">
-                            <TreeViewItem Header="Deutsch und Kommunikation"/>
+                        <TreeViewItem Header="Allgemeine Fächer" IsExpanded="False">
+                            <TreeViewItem Header="Deutsch"/>
                             <TreeViewItem Header="Englisch"/>
+                            <TreeViewItem Header="Religion"/>
                             <TreeViewItem Header="GGP"/>
                             <TreeViewItem Header="Angewandte Mathematik"/>
-                            <TreeViewItem Header="Naturwissenschaften Grundlagen"/>
+                            <TreeViewItem Header="Naturwissenschaften"/>
+                            <TreeViewItem Header="Bewegung und SPort"/>
+                            <TreeViewItem Header="SopK"/>
+                        </TreeViewItem>
+
+                        <TreeViewItem Header="Mechatronik Fachschule" IsExpanded="False">
                             <TreeViewItem Header="Angewandte Informatik"/>
                             <TreeViewItem Header="Unternehmensführung"/>
                             <TreeViewItem Header="Konstruktion und Projektmanagement"/>
@@ -54,12 +60,7 @@
                         </TreeViewItem>
 
                         <TreeViewItem Header="Maschinenbau" IsExpanded="False">
-                            <TreeViewItem Header="Deutsch"/>
-                            <TreeViewItem Header="Englisch"/>
-                            <TreeViewItem Header="GGP"/>
                             <TreeViewItem Header="Wirtschaft und Recht"/>
-                            <TreeViewItem Header="Angewandte Mathematik"/>
-                            <TreeViewItem Header="Naturwissenschaften"/>
                             <TreeViewItem Header="Konstruktion und Projektmanagement"/>
                             <TreeViewItem Header="Technische Mechanik und Berechnung"/>
                             <TreeViewItem Header="Fertigungstechnik"/>
@@ -72,11 +73,6 @@
                         </TreeViewItem>
 
                         <TreeViewItem Header="Elektrotechnik" IsExpanded="False">
-                            <TreeViewItem Header="Deutsch"/>
-                            <TreeViewItem Header="Englisch"/>
-                            <TreeViewItem Header="GGP"/>
-                            <TreeViewItem Header="Angewandte Mathematik"/>
-                            <TreeViewItem Header="Naturwissenschaften"/>
                             <TreeViewItem Header="Wirtschaft und Recht"/>
                             <TreeViewItem Header="Energiesysteme"/>
                             <TreeViewItem Header="Automatisierungstechnik"/>
@@ -90,11 +86,6 @@
                         </TreeViewItem>
 
                         <TreeViewItem Header="Wirtschaftsingenieure – Maschinenbau" IsExpanded="False">
-                            <TreeViewItem Header="Deutsch"/>
-                            <TreeViewItem Header="Englisch"/>
-                            <TreeViewItem Header="GGP"/>
-                            <TreeViewItem Header="Angewandte Mathematik"/>
-                            <TreeViewItem Header="Naturwissenschaften"/>
                             <TreeViewItem Header="Unternehmensführung u. Wirtschaftsrecht mit Übungen in (Business Englisch)"/>
                             <TreeViewItem Header="Betriebstechnik"/>
                             <TreeViewItem Header="Informatik und Informationssysteme"/>
@@ -105,11 +96,6 @@
                         </TreeViewItem>
 
                         <TreeViewItem Header="Informationstechnik" IsExpanded="False">
-                            <TreeViewItem Header="Deutsch"/>
-                            <TreeViewItem Header="Englisch"/>
-                            <TreeViewItem Header="GGP"/>
-                            <TreeViewItem Header="Angewandte Mathematik"/>
-                            <TreeViewItem Header="Naturwissenschaften"/>
                             <TreeViewItem Header="Wirtschaft und Recht"/>
                             <TreeViewItem Header="Softwareentwicklung"/>
                             <TreeViewItem Header="Informationstechnische Projekte"/>
