@@ -8,53 +8,31 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Anmeldung">
-    
 
-    <DockPanel Background="Transparent">
-        <DockPanel>
-            <StackPanel DockPanel.Dock="Top">
-                <DockPanel DockPanel.Dock="Top">
-                    <Menu DockPanel.Dock="Top" Width="800" Height="20">
-                        <MenuItem Header="Anmeldung"></MenuItem>
-                    </Menu>
-                </DockPanel>
+    <DockPanel Background="#F5F5F5">
+        <Menu DockPanel.Dock="Top" Width="800" Height="20">
+            <MenuItem Header="Anmeldung"></MenuItem>
+        </Menu>
 
-                <DockPanel HorizontalAlignment="Center">
-                    <TextBlock HorizontalAlignment="Center" FontSize="50">HTL-Mentoring</TextBlock>
-                </DockPanel>
-
-                <DockPanel HorizontalAlignment="Center">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20 0 0">
-                        <TextBlock Margin="0 8 0 0">E-Mail:</TextBlock>
-                        <TextBox Margin="33 0 0 0" Width="150" x:Name="email" IsEnabled="True" Background="Gray"></TextBox>
-                    </StackPanel>
-                </DockPanel>
-
-                <DockPanel HorizontalAlignment="Center">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
-                        <TextBlock Margin="0 10 0 0">Passwort:</TextBlock>
-                        <PasswordBox Margin="20 0 0 0" Width="150" x:Name="passsord" Background="Gray"></PasswordBox>
-                    </StackPanel>
-                </DockPanel>
-                <DockPanel HorizontalAlignment="Center">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
-                        <ui:Button Appearance="Primary" Margin="70 0 0 0" Width="150" Click="anmeldung_Click">Anmeldung</ui:Button>
-                        
-                        
-                    </StackPanel>
-                </DockPanel>
-                <DockPanel HorizontalAlignment="Center">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
-                        <Button Margin="70 0 0 0" Width="150" Click="registrierung">zur Registrierung</Button>
-                    </StackPanel>
-                </DockPanel>
-                <DockPanel HorizontalAlignment="Center">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
-                        <TextBlock Margin="80 0 0 0">Passwort Vergessen</TextBlock>
-                        <CheckBox Margin="25 0 0 0"></CheckBox>
-                    </StackPanel>
-                </DockPanel>
+        <Grid HorizontalAlignment="Center" Margin="0 10 0 0">
+            <StackPanel>
+                <TextBlock Text="HTL-Mentoring" FontSize="32" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <TextBlock Text="E-Mail:" Margin="0,8,0,0"/>
+                    <TextBox x:Name="email" Width="150" Background="White" Margin="33,0,0,0" Padding="5"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                    <TextBlock Text="Passwort:" Margin="0,10,0,0"/>
+                    <PasswordBox x:Name="password" Width="150" Background="White" Margin="20,0,0,0" Padding="5"/>
+                </StackPanel>
+                <ui:Button  Appearance="Primary" Content="Anmeldung" Click="anmeldung" HorizontalAlignment="Center" Width="150" Background="#0078D7" Foreground="White" Margin="0,10,0,0"/>
+                <Button Content="zur Registrierung" HorizontalAlignment="Center" Width="150" Margin="0,10,0,0" Click="registrierung"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                    <TextBlock Text="Passwort Vergessen" Margin="0,7,10,0"/>
+                    <CheckBox x:Name="isChecked"></CheckBox>
+                    
+                </StackPanel>
             </StackPanel>
-        </DockPanel>
+        </Grid>
     </DockPanel>
 </Page>
