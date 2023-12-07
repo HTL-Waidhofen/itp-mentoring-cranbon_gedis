@@ -8,7 +8,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Registration" Background="transparent">
-
     <Page.Resources></Page.Resources>
     <Viewbox Stretch="Fill" StretchDirection="Both">
         <DockPanel>
@@ -33,20 +32,10 @@
                         <ui:Button Content="WPF UI button" Icon="Fluent24" />
                     </StackPanel>
                 </StackPanel>
-
                 <StackPanel Orientation="Vertical">
 
-<<<<<<< HEAD
                     <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview" SelectionChanged="search_treeview_SelectionChanged"></ui:TextBox>
                     <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_TreeView" SelectedItemChanged="subjects_TreeView_SelectedItemChanged" >
-<<<<<<< HEAD
-=======
-                        <TreeViewItem Header="Informatik" IsExpanded="False">
-                            <TreeViewItem Header="Feature Schedule"/>
-=======
-                    <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview"></ui:TextBox>
-                    <TreeView AllowDrop="True" Width="500" Height="400" x:Name="subjects_Listbox" SelectedItemChanged="myTreeView_SelectedItemChanged">
->>>>>>> 8f4cd41548a91b1d3c6b50eba28dfe32dd0e0f8d
                         <TreeViewItem Header="Mechatronik Fachschule" IsExpanded="False">
                             <TreeViewItem Header="Deutsch und Kommunikation"/>
                             <TreeViewItem Header="Englisch"/>
@@ -130,17 +119,11 @@
                             <TreeViewItem Header="Medientechnik"/>
                             <TreeViewItem Header="Netzwerktechnik"/>
                             <TreeViewItem Header="IT-Sicherheit"/>
-<<<<<<< HEAD
-=======
->>>>>>> 3cf12671f03d49255162017ddf224942b4448bd2
->>>>>>> 8f4cd41548a91b1d3c6b50eba28dfe32dd0e0f8d
                         </TreeViewItem>
+                        
                     </TreeView>
                 </StackPanel>
             </StackPanel>
-
         </DockPanel>
     </Viewbox>
 </Page>
-
-    
