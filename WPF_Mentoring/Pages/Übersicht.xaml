@@ -8,13 +8,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Übersicht">
     <DockPanel Background="#272f34">
-        <Menu DockPanel.Dock="Top" Width="800" Height="20">
-            <MenuItem></MenuItem>
-        </Menu>
         
+        <Viewbox>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock FontSize="50" Margin="10" Foreground="White">Übersicht</TextBlock>
-            <ListBox >
+            <ListBox Margin="0 0 0 25">
                 <ListBoxItem>
                     <Button HorizontalAlignment="Center" Width="200" FontSize="20" Click="mentoren">Mentoren</Button>
                 </ListBoxItem>
@@ -29,6 +27,6 @@
                 </ListBoxItem>
             </ListBox>
         </StackPanel>
-        
+        </Viewbox>
     </DockPanel>
 </Page>
