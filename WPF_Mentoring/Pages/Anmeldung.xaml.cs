@@ -35,6 +35,21 @@ namespace WPF_Mentoring.Pages
         {
             main.rahmen_frame.Content = new Registration();
         }
+        private void Button_Click_anmeldung(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(email.Text) || string.IsNullOrWhiteSpace(password.Password))
+            {
+                MessageBox.Show("Bitte geben Sie eine E-Mail und ein Passwort ein.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (!Authentification.IsValidEmail(email.Text))
+            {
+                MessageBox.Show("Bitte geben Sie eine gültige E-Mail-Adresse ein.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                main.rahmen_frame.Content = new Registration();
+            }
+        }
 
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -48,6 +63,11 @@ namespace WPF_Mentoring.Pages
             {
                 MessageBox.Show("Bitte geben Sie eine gültige Email ein!","Fehler",MessageBoxButton.OK,MessageBoxImage.Error);
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
