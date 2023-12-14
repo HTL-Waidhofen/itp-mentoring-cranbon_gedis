@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Mentoring.Classes;
 
 namespace WPF_Mentoring.Pages
 {
@@ -33,6 +34,20 @@ namespace WPF_Mentoring.Pages
         private void registrierung(object sender, RoutedEventArgs e)
         {
             main.rahmen_frame.Content = new Registration();
+        }
+
+        private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if(email.Text != "" && Authentification.IsValidEmail(email.Text))
+            {
+                string authenCode = Authentification.GetAuthenCode();
+                Authentification.SendEmail(email.Text, authenCode);
+                MessageBox.Show("Der Code wurde an Ihre Email gesendet!", "Erfolgreich", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Bitte geben Sie eine gültige Email ein!","Fehler",MessageBoxButton.OK,MessageBoxImage.Error);
+            }
         }
     }
 }
