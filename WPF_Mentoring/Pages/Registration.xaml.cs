@@ -57,5 +57,10 @@ namespace WPF_Mentoring.Pages
         {
             
         }
+
+        private void Page_DpiChanged(object sender, DpiChangedEventArgs e)
+        {
+
+        }
     }
 }
