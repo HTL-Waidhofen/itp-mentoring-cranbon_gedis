@@ -10,7 +10,7 @@
       Title="Anmeldung">
 
     <DockPanel Background="#272f34">
-       
+
 
         <Viewbox Margin="0 20 0 0" StretchDirection="Both"  HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Width="299" Height="303">

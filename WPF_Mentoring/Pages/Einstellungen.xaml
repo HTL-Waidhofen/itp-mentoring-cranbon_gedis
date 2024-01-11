@@ -9,46 +9,38 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Einstellungen">
 
-    <DockPanel Background="#272f34">
-        <StackPanel>
-            <TextBlock FontSize="50" HorizontalAlignment="Center" Foreground="White" Margin="10">Einstellungen</TextBlock>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Viewbox>
+        <Grid Background="#272f34" Width="800" Height="450">
+            <StackPanel x:Name="LeftPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0">
+                <TextBlock FontSize="50" HorizontalAlignment="Center" Foreground="White" Margin="10">Einstellungen</TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 10 0 0">
 
-                <StackPanel Margin="10"  >
-                    <ui:Button Content="Konto"  Width="110" Margin="0,0,0,10" HorizontalAlignment="Center" Click="btnKonto_Click"/>
-                    <ui:Button Content="Name"  Width="110" Margin="0,0,0,10" HorizontalAlignment="Center" Click="btnName_Click"/>
-                    <ui:Button Content="E-Mail"  Width="110" Margin="0,0,0,10" HorizontalAlignment="Center" Click="btnEmail_Click"/>
-                    <ui:Button Content="Beschreibung" Width="110" Margin="0,0,0,10" HorizontalAlignment="Center" Click="btnBeschreibung_Click"/>
-                    <ui:Button Content="Fächer" Width="110" Margin="0,0,0,10" HorizontalAlignment="Center" Click="btnFaecher_Click"/>
 
-                </StackPanel>
+                    <StackPanel Margin="10">
+                        <ui:Button Content="Konto"  Width="110" Margin="0,0,0,10" HorizontalAlignment="Center" Click="btnKonto_Click"/>
+                        <ui:Button Content="Beschreibung" Width="110" Margin="0,0,0,10" HorizontalAlignment="Center" Click="btnBeschreibung_Click"/>
+                        <ui:Button Content="Fächer" Width="110" Margin="0,0,0,10" HorizontalAlignment="Center" Click="btnFaecher_Click"/>
+                        <ui:Button Content="Übersicht" Width="110" Margin="0,0,0,10" HorizontalAlignment="Center" Click="btnUebersicht_Click"/>
+                    </StackPanel>
 
-                <!-- Senkrechter Strich -->
+                    <!-- Senkrechter Strich -->
                 <Border BorderBrush="#ffffff" BorderThickness="1,0,0,0" Margin="10"/>
 
                 <!-- Rechte Seite mit Listbox und Übersicht -->
                 <Grid Width="600" Background="#394349">
                     <!-- Konto-Inhalt -->
-                    <StackPanel x:Name="KontoPanel" Visibility="Collapsed" Margin="20">
+                    <StackPanel x:Name="KontoPanel" Visibility="Visible" Margin="20" Cursor="">
                         <TextBlock FontSize="30" Foreground="White">Konto-Einstellungen</TextBlock>
-                        <TextBox x:Name="Benutzername" Margin="0,10,0,10"/>
+                        <TextBlock FontSize="16" Foreground="White" Margin="0,10,0,0">E-Mail:</TextBlock>
+                        <TextBox x:Name="Benutzername" Margin="0,0,0,10"/>
+                        <!-- Beispiel-Benutzername -->
+                        <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">Passwort:</TextBlock>
                         <PasswordBox x:Name="Passwort" Margin="0,0,0,10"/>
-                        <Button Content="Speichern" Width="100" HorizontalAlignment="Left"/>
-                    </StackPanel>
-
-                    <!-- Name-Inhalt -->
-                    <StackPanel x:Name="NamePanel" Visibility="Collapsed" Margin="20">
-                        <TextBlock FontSize="30" Foreground="White">Name-Einstellungen</TextBlock>
-                        <TextBox x:Name="Vorname" Margin="0,10,0,10"/>
-                        <TextBox x:Name="Nachname" Margin="0,0,0,10"/>
-                        <Button Content="Aktualisieren" Width="100" HorizontalAlignment="Left"/>
-                    </StackPanel>
-
-                    <!-- E-Mail-Inhalt -->
-                    <StackPanel x:Name="EmailPanel" Visibility="Collapsed" Margin="20">
-                        <TextBlock FontSize="30" Foreground="White">E-Mail-Einstellungen</TextBlock>
-                        <TextBox Margin="0,10,0,10"/>
-                        <Button Content="Bestätigen" Width="100" HorizontalAlignment="Left"/>
+                        <!-- Beispiel-Passwort -->
+                        <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">Passwort wiederholen:</TextBlock>
+                        <PasswordBox x:Name="PasswortWiederholen" Margin="0,0,0,10"/>
+                        <Label x:Name="passwortNotMatch" Content="Die Passwörter stimmen nicht überein." Foreground="Red" Visibility="Collapsed" Margin="0,5,0,0"/>
+                        <Button Content="Speichern" Width="100" HorizontalAlignment="Left" Click="speichern"/>
                     </StackPanel>
 
                     <!-- Beschreibung-Inhalt -->
@@ -62,16 +54,36 @@
                     <StackPanel x:Name="FaecherPanel" Visibility="Collapsed" Margin="20">
                         <TextBlock FontSize="30" Foreground="White">Fächer-Einstellungen</TextBlock>
                         <!-- Hier könnten Fächer aus einer ListBox geladen und angezeigt werden -->
-                        <ListBox>
-                            <ListBoxItem>Mathematik</ListBoxItem>
-                            <ListBoxItem>Physik</ListBoxItem>
-                            <ListBoxItem>Chemie</ListBoxItem>
-                            <!-- Weitere Fächer hier hinzufügen -->
-                        </ListBox>
-                        <Button Content="Aktualisieren" Width="100" HorizontalAlignment="Left"/>
+                            <ListBox x:Name="ausgewählteFächer" DisplayMemberPath="Name" Width="200" Height="200" Margin="0,10,0,10"/>
+                            <Button Content="Aktualisieren" Width="100" HorizontalAlignment="Left"/>
                     </StackPanel>
-                </Grid>
+                    
+                    
+                    <!-- Übersicht-Inhalt -->
+                        <StackPanel x:Name="ÜbersichtPanel" Visibility="Collapsed" Margin="20">
+                            <TextBlock FontSize="30" Foreground="White">Benutzerübersicht</TextBlock>
+
+                            <!-- Benutzerdaten anzeigen -->
+                            <TextBlock FontSize="16" Foreground="White" Margin="0,10,0,0">Name:</TextBlock>
+                            <TextBlock x:Name="benutzername" FontSize="16" Foreground="White" Margin="0,0,0,10"/>
+
+                            <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">Klasse:</TextBlock>
+                            <TextBlock x:Name="klasse" FontSize="16" Foreground="White" Margin="0,0,0,10"/>
+
+                            <!-- Ausgewählte Fächer anzeigen -->
+                            <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">Ausgewählte Mentoren Fächer:</TextBlock>
+                            <ListBox x:Name="AusgewaehlteMentorenFaecherListBox" Margin="0,0,0,10"/>
+                            <TextBlock></TextBlock>
+
+                            <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">Ausgewählte Schüler Fächer:</TextBlock>
+                            <ListBox x:Name="AusgewaehlteSchuelerFaecherListBox" Margin="0,0,0,10"/>
+
+                            <!-- Weitere Benutzerdaten hier hinzufügen -->
+
+                        </StackPanel>
+                    </Grid>
             </StackPanel>
-        </StackPanel>
-    </DockPanel>
+           </StackPanel>
+        </Grid>
+    </Viewbox>
 </Page>
