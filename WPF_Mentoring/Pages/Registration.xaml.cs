@@ -22,7 +22,8 @@ namespace WPF_Mentoring.Pages
     public partial class Registration : Page
     {
         public static MainWindow main;
-        List<string> faecher = new List<string>();
+        private List<string> ausgewaehlteFaecher = new List<string>();
+
         public Registration()
         {
             InitializeComponent();
@@ -50,12 +51,32 @@ namespace WPF_Mentoring.Pages
                 }
             }
         }
-
-
-
-        private void search_treeview_SelectionChanged(object sender, RoutedEventArgs e)
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            
+            CheckBox checkBox = sender as CheckBox;
+
+            if (checkBox != null)
+            {
+                string fachName = checkBox.Content.ToString();
+                ausgewaehlteFaecher.Add(fachName);
+
+                // Hier kannst du die Liste 'ausgewaehlteFaecher' weiterverwenden
+                // Zum Beispiel: ListBox.ItemsSource = ausgewaehlteFaecher;
+            }
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+
+            if (checkBox != null)
+            {
+                string fachName = checkBox.Content.ToString();
+                ausgewaehlteFaecher.Remove(fachName);
+
+                // Hier kannst du die Liste 'ausgewaehlteFaecher' weiterverwenden
+                // Zum Beispiel: ListBox.ItemsSource = ausgewaehlteFaecher;
+            }
         }
     }
 }
