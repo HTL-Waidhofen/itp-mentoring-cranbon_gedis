@@ -48,7 +48,7 @@ namespace WPF_Mentoring.Pages
             }
             else
             {
-                main.rahmen_frame.Content = new Registration();
+                main.rahmen_frame.Content = new Übersicht();
             }
         }
 

@@ -13,6 +13,7 @@
     <Page.Resources></Page.Resources>
     <Viewbox Stretch="Uniform" StretchDirection="Both">
         <DockPanel LastChildFill="True">
+            <Button Content="Back" Command="NavigationCommands.BrowseBack"  Padding="5" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
             <StackPanel Orientation="Vertical">
                 <Label FontSize="30" HorizontalAlignment="Center">Registrierung</Label>
                 <StackPanel Orientation="Horizontal">

@@ -31,7 +31,6 @@ namespace WPF_Mentoring.Pages
         public Registration()
         {
             InitializeComponent();
-            AllowMultiSelection(subjects_TreeView);
         }
         private void MenuItem_Anmeldung_Click(object sender, RoutedEventArgs e)
         {
@@ -41,47 +40,7 @@ namespace WPF_Mentoring.Pages
 
         private static readonly PropertyInfo IsSelectionChangeActiveProperty = typeof(TreeView).GetProperty("IsSelectionChangeActive", BindingFlags.NonPublic | BindingFlags.Instance);
 
-        public static void AllowMultiSelection(TreeView treeView)
-        {
-            string[] treeViewNotSel = new string[] { "Mechatronik Fachschule", "Allgemeine Fächer", "Maschinenbau", "Elektrotechnik", "Wirtschaftsingenieure – Maschinenbau", "Informationstechnik"};
-            if (IsSelectionChangeActiveProperty == null) return;
-
-            var selectedItems = new List<TreeViewItem>();
-            treeView.SelectedItemChanged += (a, b) =>
-            {
-                var treeViewItem = treeView.SelectedItem as TreeViewItem;
-                if (treeViewItem == null) 
-                { 
-                    return;
-                }
-
-                // allow multiple selection
-                // when control key is pressed
-                if (!treeViewNotSel.Contains(treeViewItem.Header))
-                {
-                    // suppress selection change notification
-                    // select all selected items
-                    // then restore selection change notifications
-                    var isSelectionChangeActive =
-                      IsSelectionChangeActiveProperty.GetValue(treeView, null);
-
-                    IsSelectionChangeActiveProperty.SetValue(treeView, true, null);
-                    selectedItems.ForEach(item => item.IsSelected = true);
-
-                    IsSelectionChangeActiveProperty.SetValue
-                    (
-                      treeView,
-                      isSelectionChangeActive,
-                      null
-                    );
-                }
-                else
-                {
-
-                    selectedItems.Add(selectedItem);
-                }
-            }
-        }
+        
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             CheckBox checkBox = sender as CheckBox;
