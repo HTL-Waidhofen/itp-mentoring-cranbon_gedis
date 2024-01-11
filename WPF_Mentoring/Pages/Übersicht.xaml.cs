@@ -26,6 +26,7 @@ namespace WPF_Mentoring.Pages
         public Übersicht()
         {
             InitializeComponent();
+            main.delNav();
         }
 
         private void mentoren(object sender, RoutedEventArgs e)

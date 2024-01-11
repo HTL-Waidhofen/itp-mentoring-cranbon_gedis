@@ -25,6 +25,7 @@ namespace WPF_Mentoring.Pages
         public Anmeldung()
         {
             InitializeComponent();
+            //main.delNav();
         }
         private void anmeldung(object sender, RoutedEventArgs e)
         {

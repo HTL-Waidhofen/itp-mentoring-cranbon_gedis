@@ -9,13 +9,7 @@
       Title="NA">
 
     <DockPanel Background="White">
-        <DockPanel DockPanel.Dock="Top">
-            <Menu DockPanel.Dock="Top" Width="800" Height="20">
-                <MenuItem Header="Einstellungen" Click="einstellungen"></MenuItem>
-                <MenuItem Header="Abmelden" Click="abmelden"></MenuItem>
-            </Menu>
-        </DockPanel>
-        <StackPanel Margin="10">
+        <StackPanel Margin="10" Orientation="Vertical">
             <TextBlock Text="Mentorensuche" FontWeight="Bold" FontSize="20" Margin="0,0,0,10" />
 
             <!-- Filteroptionen -->

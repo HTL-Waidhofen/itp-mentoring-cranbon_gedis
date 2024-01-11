@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 using ITP_Mentoring_WPF;
+using WPF_Mentoring.Classes;
 
 namespace WPF_Mentoring.Pages
 {
@@ -28,7 +31,7 @@ namespace WPF_Mentoring.Pages
         public Registration()
         {
             InitializeComponent();
-           
+            AllowMultiSelection(subjects_TreeView);
         }
         private void MenuItem_Anmeldung_Click(object sender, RoutedEventArgs e)
         {
@@ -36,18 +39,45 @@ namespace WPF_Mentoring.Pages
         }
         private List<TreeViewItem> selectedItems = new List<TreeViewItem>();
 
-        private void subjects_TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        {
-            TreeViewItem selectedItem = subjects_TreeView.SelectedItem as TreeViewItem;
+        private static readonly PropertyInfo IsSelectionChangeActiveProperty = typeof(TreeView).GetProperty("IsSelectionChangeActive", BindingFlags.NonPublic | BindingFlags.Instance);
 
-            if (selectedItem != null)
+        public static void AllowMultiSelection(TreeView treeView)
+        {
+            string[] treeViewNotSel = new string[] { "Mechatronik Fachschule", "Allgemeine Fächer", "Maschinenbau", "Elektrotechnik", "Wirtschaftsingenieure – Maschinenbau", "Informationstechnik"};
+            if (IsSelectionChangeActiveProperty == null) return;
+
+            var selectedItems = new List<TreeViewItem>();
+            treeView.SelectedItemChanged += (a, b) =>
             {
-                if (selectedItems.Contains(selectedItem))
+                var treeViewItem = treeView.SelectedItem as TreeViewItem;
+                if (treeViewItem == null) 
+                { 
+                    return;
+                }
+
+                // allow multiple selection
+                // when control key is pressed
+                if (!treeViewNotSel.Contains(treeViewItem.Header))
                 {
-                    selectedItems.Remove(selectedItem);
+                    // suppress selection change notification
+                    // select all selected items
+                    // then restore selection change notifications
+                    var isSelectionChangeActive =
+                      IsSelectionChangeActiveProperty.GetValue(treeView, null);
+
+                    IsSelectionChangeActiveProperty.SetValue(treeView, true, null);
+                    selectedItems.ForEach(item => item.IsSelected = true);
+
+                    IsSelectionChangeActiveProperty.SetValue
+                    (
+                      treeView,
+                      isSelectionChangeActive,
+                      null
+                    );
                 }
                 else
                 {
+
                     selectedItems.Add(selectedItem);
                 }
             }
