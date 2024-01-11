@@ -26,52 +26,36 @@ namespace WPF_Mentoring.Pages
         public Registration()
         {
             InitializeComponent();
-            GetFaecher();
+           
         }
-
-        private void GetFaecher()
-        {
-            faecher.Add("Mathmatik");
-            faecher.Add("Deutsch");
-            UpList();
-        }
-
         private void MenuItem_Anmeldung_Click(object sender, RoutedEventArgs e)
         {
             main.rahmen_frame.Content = new Anmeldung();
         }
+        private List<TreeViewItem> selectedItems = new List<TreeViewItem>();
 
-
-
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e) // code for searching items in listbox
+        private void subjects_TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            if (searchTextBox.Text != "")
+            TreeViewItem selectedItem = subjects_TreeView.SelectedItem as TreeViewItem;
+
+            if (selectedItem != null)
             {
-                string sort = searchTextBox.Text;
-                sort = sort[0].ToString().ToUpper() + sort.Substring(1);
-                var gesorteteFaecher =
-                    from faecher in faecher
-                    where faecher.StartsWith(sort)
-                    select faecher;
-                subjects_Listbox.Items.Clear();
-                foreach (string s in gesorteteFaecher)
+                if (selectedItems.Contains(selectedItem))
                 {
-                    subjects_Listbox.Items.Add(s);
+                    selectedItems.Remove(selectedItem);
                 }
-            }
-            else
-            {
-                UpList();
+                else
+                {
+                    selectedItems.Add(selectedItem);
+                }
             }
         }
 
-        private void UpList()
+
+
+        private void search_treeview_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            subjects_Listbox.Items.Clear();
-            foreach (string s in faecher)
-            {
-                subjects_Listbox.Items.Add(s);
-            }
+            
         }
     }
 }
