@@ -17,7 +17,7 @@ namespace WPF_Mentoring.Classes
     {
         public static bool IsValidEmail(string email)
         {
-            string pattern = @"^[a-zA-Z]+\.[a-zA-Z]+@hltwy\.at$";
+            string pattern = @"^[a-zA-Z]+\.[a-zA-Z]+@htlwy\.at$";
             return Regex.IsMatch(email, pattern);
         }
         public bool IsCorrectPassword(string password, string email)
