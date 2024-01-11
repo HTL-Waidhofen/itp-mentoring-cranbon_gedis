@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_Mentoring.Classes;
 using WPF_Mentoring.Pages;
+using WPF_Monitoring.Pages;
 
 namespace WPF_Mentoring
 {

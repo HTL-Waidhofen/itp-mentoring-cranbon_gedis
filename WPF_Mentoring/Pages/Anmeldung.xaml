@@ -10,7 +10,7 @@
       Title="Anmeldung">
 
     <DockPanel Background="#272f34">
-       
+
 
         <Viewbox Margin="0 20 0 0" StretchDirection="Both"  HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Width="299" Height="303">
@@ -23,11 +23,10 @@
                     <TextBlock Text="Passwort:" Margin="0,10,0,0" Foreground="White"/>
                     <PasswordBox x:Name="password" Width="150" Margin="20,0,0,0" Padding="5"/>
                 </StackPanel>
-                <ui:Button Appearance="Primary" Content="Anmeldung" Click="anmeldung" HorizontalAlignment="Center" Width="150" Background="#0078D7" Foreground="White" Margin="0,10,0,0"/>
+                <ui:Button Appearance="Primary" Content="Anmeldung" Click="Button_Click_anmeldung" HorizontalAlignment="Center" Width="150" Background="#0078D7" Foreground="White" Margin="0,10,0,0"/>
                 <Button Content="zur Registrierung" HorizontalAlignment="Center" Click="registrierung" Width="150" Margin="0,10,0,0"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                    <TextBlock Text="Passwort Vergessen" Margin="0,8,10,0" Foreground="White"/>
-                    <CheckBox Margin="0 0 0 0"></CheckBox>
+                    <TextBlock Text="Passwort vergessen" Foreground="White" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" FontSize="10"></TextBlock>
                 </StackPanel>
             </StackPanel>
         </Viewbox>

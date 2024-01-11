@@ -1,114 +1,89 @@
-﻿<Page x:Class="WPF_Mentoring.Pages.Einstellungen"
+﻿<Page x:Class="WPF_Monitoring.Pages.Einstellungen"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:local="clr-namespace:WPF_Mentoring.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Einstellungen">
 
-    <DockPanel Background="White">
-        <TabControl>
-            <!-- Tab für Allgemeine Einstellungen -->
-            <TabItem Header="Allgemein">
-                <Grid Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+    <Viewbox>
+        <Grid Background="#272f34" Width="800" Height="450">
+            <StackPanel x:Name="LeftPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0">
+                <TextBlock FontSize="50" HorizontalAlignment="Center" Foreground="White" Margin="10">Einstellungen</TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 10 0 0">
 
-                    <TextBlock Text="Allgemeine Einstellungen" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" />
 
-                    <CheckBox Content="Automatische Updates aktivieren" Grid.Row="1" Margin="0,0,0,5" />
-                    <CheckBox Content="Benachrichtigungen anzeigen" Grid.Row="2" Margin="0,0,0,5" />
-                    <!-- Weitere allgemeine Einstellungen -->
-                </Grid>
-            </TabItem>
-
-            <!-- Tab für Benutzerprofile -->
-            <TabItem Header="Benutzer">
-                <Grid Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <TextBlock Text="Benutzerprofileinstellungen" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" />
-
-                    <StackPanel Grid.Row="1" Margin="0,0,0,10">
-                        <TextBlock Text="Benutzername" />
-                        <TextBox Text="Benutzer123" />
+                    <StackPanel Margin="10">
+                        <ui:Button Content="Konto"  Width="110" Margin="0,0,0,10" HorizontalAlignment="Center" Click="btnKonto_Click"/>
+                        <ui:Button Content="Beschreibung" Width="110" Margin="0,0,0,10" HorizontalAlignment="Center" Click="btnBeschreibung_Click"/>
+                        <ui:Button Content="Fächer" Width="110" Margin="0,0,0,10" HorizontalAlignment="Center" Click="btnFaecher_Click"/>
+                        <ui:Button Content="Übersicht" Width="110" Margin="0,0,0,10" HorizontalAlignment="Center" Click="btnUebersicht_Click"/>
                     </StackPanel>
 
-                    <StackPanel Grid.Row="2" Margin="0,0,0,10">
-                        <TextBlock Text="Passwort ändern" />
-                        <PasswordBox PasswordChar="*" />
-                        <PasswordBox PasswordChar="*" />
-                    </StackPanel>
-                    <!-- Weitere Benutzereinstellungen -->
-                </Grid>
-            </TabItem>
+                    <!-- Senkrechter Strich -->
+                <Border BorderBrush="#ffffff" BorderThickness="1,0,0,0" Margin="10"/>
 
-            <!-- Tab für App-Einstellungen -->
-            <TabItem Header="App">
-                <Grid Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <TextBlock Text="App-Einstellungen" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" />
-
-                    <StackPanel Grid.Row="1" Margin="0,0,0,10">
-                        <TextBlock Text="Lautstärke" />
-                        <Slider Width="200" Minimum="0" Maximum="100" Value="50" />
+                <!-- Rechte Seite mit Listbox und Übersicht -->
+                <Grid Width="600" Background="#394349">
+                    <!-- Konto-Inhalt -->
+                    <StackPanel x:Name="KontoPanel" Visibility="Visible" Margin="20" Cursor="">
+                        <TextBlock FontSize="30" Foreground="White">Konto-Einstellungen</TextBlock>
+                        <TextBlock FontSize="16" Foreground="White" Margin="0,10,0,0">E-Mail:</TextBlock>
+                        <TextBox x:Name="Benutzername" Margin="0,0,0,10"/>
+                        <!-- Beispiel-Benutzername -->
+                        <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">Passwort:</TextBlock>
+                        <PasswordBox x:Name="Passwort" Margin="0,0,0,10"/>
+                        <!-- Beispiel-Passwort -->
+                        <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">Passwort wiederholen:</TextBlock>
+                        <PasswordBox x:Name="PasswortWiederholen" Margin="0,0,0,10"/>
+                        <Label x:Name="passwortNotMatch" Content="Die Passwörter stimmen nicht überein." Foreground="Red" Visibility="Collapsed" Margin="0,5,0,0"/>
+                        <Button Content="Speichern" Width="100" HorizontalAlignment="Left" Click="speichern"/>
                     </StackPanel>
 
-                    <StackPanel Grid.Row="2" Margin="0,0,0,10">
-                        <TextBlock Text="Sprache" />
-                        <ComboBox SelectedIndex="0">
-                            <ComboBoxItem Content="Deutsch" />
-                            <ComboBoxItem Content="Englisch" />
-                            <ComboBoxItem Content="Spanisch" />
-                            <!-- Weitere Sprachoptionen -->
-                        </ComboBox>
-                    </StackPanel>
-                    <!-- Weitere App-Einstellungen -->
-                </Grid>
-            </TabItem>
-
-            <!-- Tab für Erweiterte Einstellungen -->
-            <TabItem Header="Erweitert">
-                <Grid Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <TextBlock Text="Erweiterte Einstellungen" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" />
-
-                    <StackPanel Grid.Row="1" Margin="0,0,0,10">
-                        <TextBlock Text="Maximale gleichzeitige Downloads" />
-                        <TextBox Text="5" />
+                    <!-- Beschreibung-Inhalt -->
+                    <StackPanel x:Name="BeschreibungPanel" Visibility="Collapsed" Margin="20">
+                        <TextBlock FontSize="30" Foreground="White">Beschreibung-Einstellungen</TextBlock>
+                        <TextBox TextWrapping="Wrap" Height="100" Margin="0,10,0,10"/>
+                        <Button Content="Speichern" Width="100" HorizontalAlignment="Left"/>
                     </StackPanel>
 
-                    <StackPanel Grid.Row="2" Margin="0,0,0,10">
-                        <TextBlock Text="Proxy-Einstellungen" />
-                        <CheckBox Content="Proxy verwenden" />
-                        <StackPanel Margin="20,0,0,0">
-                            <TextBlock Text="Proxy-Server" />
-                            <TextBox Text="proxy.example.com" />
+                    <!-- Fächer-Inhalt -->
+                    <StackPanel x:Name="FaecherPanel" Visibility="Collapsed" Margin="20">
+                        <TextBlock FontSize="30" Foreground="White">Fächer-Einstellungen</TextBlock>
+                        <!-- Hier könnten Fächer aus einer ListBox geladen und angezeigt werden -->
+                            <ListBox x:Name="ausgewählteFächer" DisplayMemberPath="Name" Width="200" Height="200" Margin="0,10,0,10"/>
+                            <Button Content="Aktualisieren" Width="100" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    
+                    
+                    <!-- Übersicht-Inhalt -->
+                        <StackPanel x:Name="ÜbersichtPanel" Visibility="Collapsed" Margin="20">
+                            <TextBlock FontSize="30" Foreground="White">Benutzerübersicht</TextBlock>
+
+                            <!-- Benutzerdaten anzeigen -->
+                            <TextBlock FontSize="16" Foreground="White" Margin="0,10,0,0">Name:</TextBlock>
+                            <TextBlock x:Name="benutzername" FontSize="16" Foreground="White" Margin="0,0,0,10"/>
+
+                            <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">Klasse:</TextBlock>
+                            <TextBlock x:Name="klasse" FontSize="16" Foreground="White" Margin="0,0,0,10"/>
+
+                            <!-- Ausgewählte Fächer anzeigen -->
+                            <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">Ausgewählte Mentoren Fächer:</TextBlock>
+                            <ListBox x:Name="AusgewaehlteMentorenFaecherListBox" Margin="0,0,0,10"/>
+                            <TextBlock></TextBlock>
+
+                            <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">Ausgewählte Schüler Fächer:</TextBlock>
+                            <ListBox x:Name="AusgewaehlteSchuelerFaecherListBox" Margin="0,0,0,10"/>
+
+                            <!-- Weitere Benutzerdaten hier hinzufügen -->
+
                         </StackPanel>
-                    </StackPanel>
-                    <!-- Weitere erweiterte Einstellungen -->
-                </Grid>
-            </TabItem>
-        </TabControl>
-
-    </DockPanel>
+                    </Grid>
+            </StackPanel>
+           </StackPanel>
+        </Grid>
+    </Viewbox>
 </Page>

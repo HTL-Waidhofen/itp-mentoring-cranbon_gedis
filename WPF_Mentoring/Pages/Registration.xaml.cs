@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using ITP_Mentoring_WPF;
 using WPF_Mentoring.Classes;
 
@@ -25,7 +26,8 @@ namespace WPF_Mentoring.Pages
     public partial class Registration : Page
     {
         public static MainWindow main;
-        List<string> faecher = new List<string>();
+        private List<object> ausgewaehlteFaecher = new List<object>();
+
         public Registration()
         {
             InitializeComponent();
@@ -75,22 +77,45 @@ namespace WPF_Mentoring.Pages
                 }
                 else
                 {
-                    /*
-                    deselect all selected items except the current one
-                    selectedItems.ForEach(item => item.IsSelected = (item == treeViewItem));
-                    selectedItems.Clear();*/
 
-                    treeViewItem.IsSelected = false;
-                    //selectedItems.Remove(treeViewItem);
-
+                    selectedItems.Add(selectedItem);
                 }
-
-                if (!selectedItems.Contains(treeViewItem)&& !treeViewNotSel.Contains(treeViewItem.Header))
-                {
-                    selectedItems.Add(treeViewItem);
-                }
-            };
-
+            }
         }
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+
+            if (checkBox != null)
+            {
+                
+                ausgewaehlteFaecher.Add(checkBox.Content);
+                ChosenSubjectsLabelUpdater();
+                // Hier kannst du die Liste 'ausgewaehlteFaecher' weiterverwenden
+                // Zum Beispiel: ListBox.ItemsSource = ausgewaehlteFaecher;
+            }
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+
+            if (checkBox != null)
+            {
+               
+                ausgewaehlteFaecher.Remove(checkBox.Content);
+                ChosenSubjectsLabelUpdater();
+                // Hier kannst du die Liste 'ausgewaehlteFaecher' weiterverwenden
+                // Zum Beispiel: ListBox.ItemsSource = ausgewaehlteFaecher;
+            }
+        }
+        private void ChosenSubjectsLabelUpdater()
+        {
+               
+                string ergebnisString = string.Join(", ", ausgewaehlteFaecher);
+            chosen_subjects_label.Text = "Ausgewählte Fächer: " + ergebnisString;
+        }
+
+        
     }
 }
