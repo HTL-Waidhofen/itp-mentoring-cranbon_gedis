@@ -14,12 +14,10 @@
         
         <DockPanel LastChildFill="True">
             
-            <Menu DockPanel.Dock="Top"  Height="20" Width="1040">
-                <MenuItem Header="Anmeldung" Click="MenuItem_Anmeldung_Click"></MenuItem>
-            </Menu>
+            
             <StackPanel Orientation="Horizontal">
                 
-                        <StackPanel Orientation="Vertical" Margin="10">
+                        <StackPanel Orientation="Vertical" Margin="103,10,10,120">
                     <Label>Name:</Label>
                     <TextBox x:Name="name" IsReadOnly="False" IsEnabled="True" Width="250"></TextBox>
                     <Label>Klasse:</Label>
@@ -38,77 +36,77 @@
                     <ui:Button Content="Registrieren" Icon="Person12" Appearance="Primary" Margin="65,10,10,10" />
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
-                    <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview" SelectionChanged="search_treeview_SelectionChanged" Margin="15,15,15,5" Cursor="IBeam" ></ui:TextBox>
-                    <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_TreeView" SelectedItemChanged="subjects_TreeView_SelectedItemChanged" Margin="25,5">
+                    <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_TreeView" SelectedItemChanged="subjects_TreeView_SelectedItemChanged" Margin="105,5" CheckBox.Checked="CheckBox_Checked" CheckBox.Unchecked="CheckBox_Unchecked">
                         <TreeViewItem Header="Allgemeine Fächer" IsExpanded="False">
-                            <TreeViewItem Header="Deutsch"/>
-                            <TreeViewItem Header="Englisch"/>
-                            <TreeViewItem Header="Religion"/>
-                            <TreeViewItem Header="GGP"/>
-                            <TreeViewItem Header="Angewandte Mathematik"/>
-                            <TreeViewItem Header="Naturwissenschaften"/>
-                            <TreeViewItem Header="Bewegung und SPort"/>
-                            <TreeViewItem Header="SopK"/>
+                            <CheckBox>Deutsch</CheckBox>
+                            <CheckBox>Englisch</CheckBox>
+                            <CheckBox>Religion</CheckBox>
+                            <CheckBox>GGP</CheckBox>
+                            <CheckBox>Angewandte Mathematik</CheckBox>
+                            <CheckBox>Naturwissenschaften</CheckBox>
+                            <CheckBox>Bewegung und Sport</CheckBox>
+                            <CheckBox>SopK</CheckBox>
                         </TreeViewItem>
 
                         <TreeViewItem Header="Mechatronik Fachschule" IsExpanded="False">
-                            <TreeViewItem Header="Angewandte Informatik"/>
-                            <TreeViewItem Header="Unternehmensführung"/>
-                            <TreeViewItem Header="Konstruktion und Projektmanagement"/>
-                            <TreeViewItem Header="Mechatronische Systeme"/>
-                            <TreeViewItem Header="Fertigungstechnik und Mechanik"/>
-                            <TreeViewItem Header="Informationstechnik und Automatisierung"/>
-                            <TreeViewItem Header="Produktionstechnik"/>
-                            <TreeViewItem Header="Laboratorium"/>
-                            <TreeViewItem Header="Werkstätte und Produktionstechnik"/>
+                            <CheckBox>Angewandte Informatik</CheckBox>
+                            <CheckBox>Unternehmensführung</CheckBox>
+                            <CheckBox>Konstruktion und Projektmanagement</CheckBox>
+                            <CheckBox>Mechatronische Systeme</CheckBox>
+                            <CheckBox>Fertigungstechnik und Mechanik</CheckBox>
+                            <CheckBox>Informationstechnik und Automatisierung</CheckBox>
+                            <CheckBox>Produktionstechnik</CheckBox>
+                            <CheckBox>Laboratorium</CheckBox>
+                            <CheckBox>Werkstätte und Produktionstechnik</CheckBox>
                         </TreeViewItem>
 
                         <TreeViewItem Header="Maschinenbau" IsExpanded="False">
-                            <TreeViewItem Header="Wirtschaft und Recht"/>
-                            <TreeViewItem Header="Konstruktion und Projektmanagement"/>
-                            <TreeViewItem Header="Technische Mechanik und Berechnung"/>
-                            <TreeViewItem Header="Fertigungstechnik"/>
-                            <TreeViewItem Header="Maschinen und Anlagen"/>
-                            <TreeViewItem Header="Automatisierungstechnik"/>
-                            <TreeViewItem Header="Elektrotechnik und Elektronik"/>
-                            <TreeViewItem Header="Angewandte Informatik und Informationstechnik"/>
-                            <TreeViewItem Header="Robotik und Prozessdatenverarbeitung"/>
-                            <TreeViewItem Header="Laboratorium"/>
+                            <CheckBox>Wirtschaft und Recht</CheckBox>
+                            <CheckBox>Konstruktion und Projektmanagement</CheckBox>
+                            <CheckBox>Technische Mechanik und Berechnung</CheckBox>
+                            <CheckBox>Fertigungstechnik</CheckBox>
+                            <CheckBox>Maschinen und Anlagen</CheckBox>
+                            <CheckBox>Automatisierungstechnik</CheckBox>
+                            <CheckBox>Elektrotechnik und Elektronik</CheckBox>
+                            <CheckBox>Angewandte Informatik und Informationstechnik</CheckBox>
+                            <CheckBox>Robotik und Prozessdatenverarbeitung</CheckBox>
+                            <CheckBox>Laboratorium</CheckBox>
+
                         </TreeViewItem>
 
                         <TreeViewItem Header="Elektrotechnik" IsExpanded="False">
-                            <TreeViewItem Header="Wirtschaft und Recht"/>
-                            <TreeViewItem Header="Energiesysteme"/>
-                            <TreeViewItem Header="Automatisierungstechnik"/>
-                            <TreeViewItem Header="Antriebstechnik"/>
-                            <TreeViewItem Header="Industrieelektronik"/>
-                            <TreeViewItem Header="Fachspezifische Informationstechnik"/>
-                            <TreeViewItem Header="Computergeschützte Projektentwicklung"/>
-                            <TreeViewItem Header="Laboratorium"/>
-                            <TreeViewItem Header="Werkstätte und Produktionstechnik"/>
-                            <TreeViewItem Header="Schulautonome Vertiefungsgegenstände"/>
+                            <CheckBox>Wirtschaft und Recht</CheckBox>
+                            <CheckBox>Energiesysteme</CheckBox>
+                            <CheckBox>Automatisierungstechnik</CheckBox>
+                            <CheckBox>Antriebstechnik</CheckBox>
+                            <CheckBox>Industrieelektronik</CheckBox>
+                            <CheckBox>Fachspezifische Informationstechnik</CheckBox>
+                            <CheckBox>Computergeschützte Projektentwicklung</CheckBox>
+                            <CheckBox>Laboratorium</CheckBox>
+                            <CheckBox>Werkstätte und Produktionstechnik</CheckBox>
+                            <CheckBox>Schulautonome Vertiefungsgegenstände</CheckBox>
                         </TreeViewItem>
 
                         <TreeViewItem Header="Wirtschaftsingenieure – Maschinenbau" IsExpanded="False">
-                            <TreeViewItem Header="Unternehmensführung u. Wirtschaftsrecht mit Übungen in (Business Englisch)"/>
-                            <TreeViewItem Header="Betriebstechnik"/>
-                            <TreeViewItem Header="Informatik und Informationssysteme"/>
-                            <TreeViewItem Header="Konstruktion und Berechnung"/>
-                            <TreeViewItem Header="Werkstoff- und Fertigungstechnik"/>
-                            <TreeViewItem Header="Maschinen, Anlagen, Automatisierung"/>
-                            <TreeViewItem Header="Laboratorium"/>
+                            <CheckBox>Unternehmensführung u. Wirtschaftsrecht mit Übungen in (Business Englisch)</CheckBox>
+                            <CheckBox>Betriebstechnik</CheckBox>
+                            <CheckBox>Informatik und Informationssysteme</CheckBox>
+                            <CheckBox>Konstruktion und Berechnung</CheckBox>
+                            <CheckBox>Werkstoff- und Fertigungstechnik</CheckBox>
+                            <CheckBox>Maschinen, Anlagen, Automatisierung</CheckBox>
+                            <CheckBox>Laboratorium</CheckBox>
                         </TreeViewItem>
 
                         <TreeViewItem Header="Informationstechnik" IsExpanded="False">
-                            <TreeViewItem Header="Wirtschaft und Recht"/>
-                            <TreeViewItem Header="Softwareentwicklung"/>
-                            <TreeViewItem Header="Informationstechnische Projekte"/>
-                            <TreeViewItem Header="Informationssysteme"/>
-                            <TreeViewItem Header="Systemtechnik"/>
-                            <TreeViewItem Header="Cloud Computing und industrielle Technologien"/>
-                            <TreeViewItem Header="Medientechnik"/>
-                            <TreeViewItem Header="Netzwerktechnik"/>
-                            <TreeViewItem Header="IT-Sicherheit"/>
+                            <CheckBox>Wirtschaft und Recht</CheckBox>
+                            <CheckBox>Softwareentwicklung</CheckBox>
+                            <CheckBox>Informationstechnische Projekte</CheckBox>
+                            <CheckBox>Informationssysteme</CheckBox>
+                            <CheckBox>Systemtechnik</CheckBox>
+                            <CheckBox>Cloud Computing und industrielle Technologien</CheckBox>
+                            <CheckBox>Medientechnik</CheckBox>
+                            <CheckBox>Netzwerktechnik</CheckBox>
+                            <CheckBox>IT-Sicherheit</CheckBox>
                         </TreeViewItem>
                         
                     </TreeView>
