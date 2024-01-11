@@ -25,6 +25,7 @@ namespace WPF_Mentoring.Pages
         public Mentor()
         {
             InitializeComponent();
+            main.createNav();
         }
     }
 }

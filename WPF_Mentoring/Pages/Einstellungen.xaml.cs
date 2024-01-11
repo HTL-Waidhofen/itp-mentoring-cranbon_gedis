@@ -24,6 +24,7 @@ namespace WPF_Mentoring.Pages
         public Einstellungen()
         {
             InitializeComponent();
+            main.createNav();
         }
     }
 }

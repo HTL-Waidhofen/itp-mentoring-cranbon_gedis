@@ -7,15 +7,15 @@
       xmlns:local="clr-namespace:WPF_Mentoring.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="600"
+      xmlns:muxm="using:Microsoft.UI.Xaml.Media" xmlns:nav="clr-namespace:WPF_Mentoring"
       Title="Registration" Background="#272f34">
     <Page.Resources></Page.Resources>
     <Viewbox Stretch="Uniform" StretchDirection="Both">
-        <DockPanel LastChildFill="True">
-            <Menu DockPanel.Dock="Top"  Height="20" Width="1040">
-                <MenuItem Header="Anmeldung" Click="MenuItem_Anmeldung_Click"></MenuItem>
-            </Menu>
+        <DockPanel LastChildFill="True" Width="1240" Height="600">
+            <Frame Grid.Column="1" x:Name="navFrame" Background="LightBlue"/>
             <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Vertical" Margin="10">
+                <Button Command="NavigationCommands.BrowseBack" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 10 5 0" Content="Back" BorderThickness="0"/>
+                <StackPanel Orientation="Vertical" Margin="10"> 
                     <Label>Name:</Label>
                     <TextBox x:Name="name" IsReadOnly="False" IsEnabled="True" Width="250"></TextBox>
                     <Label>Klasse:</Label>
@@ -29,14 +29,14 @@
                     <StackPanel Margin="10" Orientation="Horizontal">
                         <Label Margin="10,12,10,10">Mentor</Label>
                         <CheckBox Margin="6"></CheckBox>
-                        
+
                     </StackPanel>
                     <ui:Button Content="Registrieren" Icon="Fluent24" Appearance="Primary" />
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
-                    <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview" SelectionChanged="search_treeview_SelectionChanged" Margin="15,15,15,5" Cursor="IBeam" ></ui:TextBox>
-                    <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_TreeView" SelectedItemChanged="subjects_TreeView_SelectedItemChanged" Margin="25,5">
-                        <TreeViewItem Header="Allgemeine Fächer" IsExpanded="False">
+                    <ui:TextBox PlaceholderEnabled="True" PlaceholderText="Suche..." x:Name="search_treeview" Margin="15,15,15,5" Cursor="IBeam" ></ui:TextBox>
+                    <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_TreeView" Margin="25,5" IsTextSearchEnabled="True" Cursor="IBeam">
+                        <TreeViewItem Header="Allgemeine Fächer" IsExpanded="False" IsSelected="False" >
                             <TreeViewItem Header="Deutsch"/>
                             <TreeViewItem Header="Englisch"/>
                             <TreeViewItem Header="Religion"/>
@@ -47,7 +47,7 @@
                             <TreeViewItem Header="SopK"/>
                         </TreeViewItem>
 
-                        <TreeViewItem Header="Mechatronik Fachschule" IsExpanded="False">
+                        <TreeViewItem Header="Mechatronik Fachschule" IsExpanded="False" IsSelected="False">
                             <TreeViewItem Header="Angewandte Informatik"/>
                             <TreeViewItem Header="Unternehmensführung"/>
                             <TreeViewItem Header="Konstruktion und Projektmanagement"/>
@@ -59,7 +59,7 @@
                             <TreeViewItem Header="Werkstätte und Produktionstechnik"/>
                         </TreeViewItem>
 
-                        <TreeViewItem Header="Maschinenbau" IsExpanded="False">
+                        <TreeViewItem Header="Maschinenbau" IsExpanded="False" IsSelected="False">
                             <TreeViewItem Header="Wirtschaft und Recht"/>
                             <TreeViewItem Header="Konstruktion und Projektmanagement"/>
                             <TreeViewItem Header="Technische Mechanik und Berechnung"/>
@@ -72,7 +72,7 @@
                             <TreeViewItem Header="Laboratorium"/>
                         </TreeViewItem>
 
-                        <TreeViewItem Header="Elektrotechnik" IsExpanded="False">
+                        <TreeViewItem Header="Elektrotechnik" IsExpanded="False" IsSelected="False">
                             <TreeViewItem Header="Wirtschaft und Recht"/>
                             <TreeViewItem Header="Energiesysteme"/>
                             <TreeViewItem Header="Automatisierungstechnik"/>
@@ -85,7 +85,7 @@
                             <TreeViewItem Header="Schulautonome Vertiefungsgegenstände"/>
                         </TreeViewItem>
 
-                        <TreeViewItem Header="Wirtschaftsingenieure – Maschinenbau" IsExpanded="False">
+                        <TreeViewItem Header="Wirtschaftsingenieure – Maschinenbau" IsExpanded="False" IsSelected="False">
                             <TreeViewItem Header="Unternehmensführung u. Wirtschaftsrecht mit Übungen in (Business Englisch)"/>
                             <TreeViewItem Header="Betriebstechnik"/>
                             <TreeViewItem Header="Informatik und Informationssysteme"/>
@@ -95,7 +95,7 @@
                             <TreeViewItem Header="Laboratorium"/>
                         </TreeViewItem>
 
-                        <TreeViewItem Header="Informationstechnik" IsExpanded="False">
+                        <TreeViewItem Header="Informationstechnik" IsExpanded="False" IsSelected="False">
                             <TreeViewItem Header="Wirtschaft und Recht"/>
                             <TreeViewItem Header="Softwareentwicklung"/>
                             <TreeViewItem Header="Informationstechnische Projekte"/>
@@ -106,7 +106,6 @@
                             <TreeViewItem Header="Netzwerktechnik"/>
                             <TreeViewItem Header="IT-Sicherheit"/>
                         </TreeViewItem>
-                        
                     </TreeView>
                 </StackPanel>
             </StackPanel>

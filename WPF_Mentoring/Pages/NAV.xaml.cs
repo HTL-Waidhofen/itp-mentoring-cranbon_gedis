@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Mentoring;
 
 namespace WPF_Mentoring.Pages
 {
@@ -24,6 +25,7 @@ namespace WPF_Mentoring.Pages
         public NAV()
         {
             InitializeComponent();
+            main.createNav();
         }
 
         private void einstellungen(object sender, RoutedEventArgs e)

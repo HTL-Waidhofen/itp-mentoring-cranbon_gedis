@@ -29,17 +29,21 @@ namespace WPF_Mentoring
             InitializeComponent();
             rahmen_frame.Content = new Anmeldung();
 
-            Anmeldung.main = this;
+            WPF_Mentoring.Pages.Anmeldung.main = this;
             Übersicht.main = this;
             Registration.main = this;
             Einstellungen.main = this;
+            WPF_Mentoring.Pages.Mentor.main = this;
             NAV.main = this;
-            Übersicht.main = this;
-            Anmeldung.main = this;
-            Registration.main = this;
-
+            NavTab.main = this;
         }
-
-
+        public void createNav()
+        {
+            NavTabUI.Content = new NavTab();
+        }
+        public void delNav()
+        {
+            NavTabUI.Content = " ";
+        }
     }
 }

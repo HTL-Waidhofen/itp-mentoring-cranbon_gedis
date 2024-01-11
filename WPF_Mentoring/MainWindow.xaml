@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITP_Mentoring_WPF"
         mc:Ignorable="d"
-        Background="#2d2d2d"
+        Background="#272f34"
         Title="MainWindow" Height="450" Width="800" >
     <DockPanel>
-        <Frame x:Name="rahmen_frame" NavigationUIVisibility="Hidden"></Frame>
+        <Frame x:Name="NavTabUI" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" VerticalAlignment="Top" ></Frame>
+        <Frame x:Name="rahmen_frame" NavigationUIVisibility="Hidden" ></Frame>
     </DockPanel>    
 </Window>
 
