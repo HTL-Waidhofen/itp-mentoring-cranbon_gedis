@@ -32,16 +32,6 @@ namespace WPF_Monitoring.Pages
             ShowPanel(KontoPanel);
         }
 
-        private void btnName_Click(object sender, RoutedEventArgs e)
-        {
-            ShowPanel(NamePanel);
-        }
-
-        private void btnEmail_Click(object sender, RoutedEventArgs e)
-        {
-            ShowPanel(EmailPanel);
-        }
-
         private void btnBeschreibung_Click(object sender, RoutedEventArgs e)
         {
             ShowPanel(BeschreibungPanel);
@@ -52,17 +42,45 @@ namespace WPF_Monitoring.Pages
             ShowPanel(FaecherPanel);
         }
 
+        private void btnUebersicht_Click(object sender, RoutedEventArgs e)
+        {
+            ShowPanel(ÜbersichtPanel);
+        }
         private void ShowPanel(StackPanel panelToShow)
         {
             // Setze die Sichtbarkeit aller Panels auf Collapsed
             KontoPanel.Visibility = Visibility.Collapsed;
-            NamePanel.Visibility = Visibility.Collapsed;
-            EmailPanel.Visibility = Visibility.Collapsed;
             BeschreibungPanel.Visibility = Visibility.Collapsed;
             FaecherPanel.Visibility = Visibility.Collapsed;
+            ÜbersichtPanel.Visibility = Visibility.Collapsed;
 
             // Zeige das entsprechende Panel
             panelToShow.Visibility = Visibility.Visible;
+        }
+
+        private void speichern(object sender, RoutedEventArgs e)
+        {
+            if (Passwort.Password != PasswortWiederholen.Password)
+            {
+                // Passwörter stimmen nicht überein, Fehlermeldung anzeigen
+                passwortNotMatch.Visibility = Visibility.Visible;
+                return; // Stoppen Sie den weiteren Verarbeitungsfluss, um das Speichern zu verhindern.
+            }
+
+            // Hier können Sie den Code für das Speichern der Kontoinformationen implementieren
+
+            // Wenn das Speichern erfolgreich war, können Sie das Label zurücksetzen
+            passwortNotMatch.Visibility = Visibility.Collapsed;
+        }
+
+        private void aktualisieren(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void speichernBeschreibung(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
