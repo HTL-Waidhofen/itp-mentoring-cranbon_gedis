@@ -13,105 +13,109 @@
     <Viewbox Stretch="Uniform" StretchDirection="Both">
         
         <DockPanel LastChildFill="True">
-            
-            
-            <StackPanel Orientation="Horizontal">
-                
-                        <StackPanel Orientation="Vertical" Margin="103,10,10,120">
-                    <Label>Name:</Label>
-                    <TextBox x:Name="name" IsReadOnly="False" IsEnabled="True" Width="250"></TextBox>
-                    <Label>Klasse:</Label>
-                    <TextBox x:Name="klasse"></TextBox>
-                    <Label>Email:</Label>
-                    <TextBox x:Name="email"></TextBox>
-                    <Label>Passwort:</Label>
-                    <PasswordBox x:Name="password" IsEnabled="True" ></PasswordBox>
-                    <Label>Passwort erneut eingeben:</Label>
-                    <PasswordBox x:Name="passwortCheck_Passwordbox" IsEnabled="True"></PasswordBox>
-                    <StackPanel Margin="10" Orientation="Horizontal">
-                        <Label Margin="75,12,10,10">Mentor</Label>
-                        <CheckBox Margin="6"></CheckBox>
-                        
+            <StackPanel Orientation="Vertical">
+                <Label FontSize="30" HorizontalAlignment="Center">Registrierung</Label>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" Margin="103,10,10,120">
+                        <Label>Name:</Label>
+                        <TextBox x:Name="name" IsReadOnly="False" IsEnabled="True" Width="250"></TextBox>
+                        <Label>Klasse:</Label>
+                        <TextBox x:Name="klasse"></TextBox>
+                        <Label>Email:</Label>
+                        <TextBox x:Name="email"></TextBox>
+                        <Label>Passwort:</Label>
+                        <PasswordBox x:Name="password" IsEnabled="True" ></PasswordBox>
+                        <Label>Passwort erneut eingeben:</Label>
+                        <PasswordBox x:Name="passwortCheck_Passwordbox" IsEnabled="True"></PasswordBox>
+                        <StackPanel Margin="10" Orientation="Horizontal">
+                            <Label Margin="75,12,10,10">Mentor</Label>
+                            <CheckBox Margin="6"></CheckBox>
+
+                        </StackPanel>
+                        <ui:Button Content="Registrieren" Icon="Person12" Appearance="Primary" Margin="65,10,10,10" />
                     </StackPanel>
-                    <ui:Button Content="Registrieren" Icon="Person12" Appearance="Primary" Margin="65,10,10,10" />
+                    <StackPanel Orientation="Vertical">
+                        <TreeView AllowDrop="True"  Width="600" Height="300" x:Name="subjects_TreeView" Margin="9,5" CheckBox.Checked="CheckBox_Checked" CheckBox.Unchecked="CheckBox_Unchecked">
+                            <TreeViewItem Header="Allgemeine Fächer" IsExpanded="False">
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Angewandte Mathematik</CheckBox>
+                                <CheckBox  Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Deutsch</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Englisch</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">GGP</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Naturwissenschaften</CheckBox>
+#                            </TreeViewItem>
+
+                            <TreeViewItem Header="Mechatronik Fachschule" IsExpanded="False">
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Angewandte Informatik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Unternehmensführung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Konstruktion und Projektmanagement</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Mechatronische Systeme</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Fertigungstechnik und Mechanik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Informationstechnik und Automatisierung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Produktionstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Laboratorium</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Werkstätte und Produktionstechnik</CheckBox>
+                            </TreeViewItem>
+
+                            <TreeViewItem Header="Maschinenbau" IsExpanded="False">
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Wirtschaft und Recht</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Konstruktion und Projektmanagement</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Technische Mechanik und Berechnung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Fertigungstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Maschinen und Anlagen</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Automatisierungstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Elektrotechnik und Elektronik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Angewandte Informatik und Informationstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Robotik und Prozessdatenverarbeitung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Laboratorium</CheckBox>
+
+                            </TreeViewItem>
+
+                            <TreeViewItem Header="Elektrotechnik" IsExpanded="False">
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Wirtschaft und Recht</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Energiesysteme</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Automatisierungstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Antriebstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Industrieelektronik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Fachspezifische Informationstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Computergeschützte Projektentwicklung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Laboratorium</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Werkstätte und Produktionstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Schulautonome Vertiefungsgegenstände</CheckBox>
+                            </TreeViewItem>
+
+                            <TreeViewItem Header="Wirtschaftsingenieure – Maschinenbau" IsExpanded="False">
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Unternehmensführung u. Wirtschaftsrecht mit Übungen in (Business Englisch)</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Betriebstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Informatik und Informationssysteme</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Konstruktion und Berechnung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Werkstoff- und Fertigungstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Maschinen, Anlagen, Automatisierung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Laboratorium</CheckBox>
+                            </TreeViewItem>
+
+                            <TreeViewItem Header="Informationstechnik" IsExpanded="False">
+                                <CheckBox  Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Wirtschaft und Recht</CheckBox>
+                                <CheckBox  Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Softwareentwicklung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Informationstechnische Projekte</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Informationssysteme</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Systemtechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Cloud Computing und industrielle Technologien</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Medientechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Netzwerktechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">IT-Sicherheit</CheckBox>
+                            </TreeViewItem>
+
+                        </TreeView>
+
+
+                        <TextBox IsReadOnly="True" FontSize="18" x:Name="chosen_subjects_label" MaxWidth="590" Margin="30,0,0,0" Height="200" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" AllowDrop="True"/>
+
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel Orientation="Vertical">
-                    <TreeView AllowDrop="True"  Width="500" Height="400" x:Name="subjects_TreeView" SelectedItemChanged="subjects_TreeView_SelectedItemChanged" Margin="105,5" CheckBox.Checked="CheckBox_Checked" CheckBox.Unchecked="CheckBox_Unchecked">
-                        <TreeViewItem Header="Allgemeine Fächer" IsExpanded="False">
-                            <CheckBox>Deutsch</CheckBox>
-                            <CheckBox>Englisch</CheckBox>
-                            <CheckBox>Religion</CheckBox>
-                            <CheckBox>GGP</CheckBox>
-                            <CheckBox>Angewandte Mathematik</CheckBox>
-                            <CheckBox>Naturwissenschaften</CheckBox>
-                            <CheckBox>Bewegung und Sport</CheckBox>
-                            <CheckBox>SopK</CheckBox>
-                        </TreeViewItem>
 
-                        <TreeViewItem Header="Mechatronik Fachschule" IsExpanded="False">
-                            <CheckBox>Angewandte Informatik</CheckBox>
-                            <CheckBox>Unternehmensführung</CheckBox>
-                            <CheckBox>Konstruktion und Projektmanagement</CheckBox>
-                            <CheckBox>Mechatronische Systeme</CheckBox>
-                            <CheckBox>Fertigungstechnik und Mechanik</CheckBox>
-                            <CheckBox>Informationstechnik und Automatisierung</CheckBox>
-                            <CheckBox>Produktionstechnik</CheckBox>
-                            <CheckBox>Laboratorium</CheckBox>
-                            <CheckBox>Werkstätte und Produktionstechnik</CheckBox>
-                        </TreeViewItem>
-
-                        <TreeViewItem Header="Maschinenbau" IsExpanded="False">
-                            <CheckBox>Wirtschaft und Recht</CheckBox>
-                            <CheckBox>Konstruktion und Projektmanagement</CheckBox>
-                            <CheckBox>Technische Mechanik und Berechnung</CheckBox>
-                            <CheckBox>Fertigungstechnik</CheckBox>
-                            <CheckBox>Maschinen und Anlagen</CheckBox>
-                            <CheckBox>Automatisierungstechnik</CheckBox>
-                            <CheckBox>Elektrotechnik und Elektronik</CheckBox>
-                            <CheckBox>Angewandte Informatik und Informationstechnik</CheckBox>
-                            <CheckBox>Robotik und Prozessdatenverarbeitung</CheckBox>
-                            <CheckBox>Laboratorium</CheckBox>
-
-                        </TreeViewItem>
-
-                        <TreeViewItem Header="Elektrotechnik" IsExpanded="False">
-                            <CheckBox>Wirtschaft und Recht</CheckBox>
-                            <CheckBox>Energiesysteme</CheckBox>
-                            <CheckBox>Automatisierungstechnik</CheckBox>
-                            <CheckBox>Antriebstechnik</CheckBox>
-                            <CheckBox>Industrieelektronik</CheckBox>
-                            <CheckBox>Fachspezifische Informationstechnik</CheckBox>
-                            <CheckBox>Computergeschützte Projektentwicklung</CheckBox>
-                            <CheckBox>Laboratorium</CheckBox>
-                            <CheckBox>Werkstätte und Produktionstechnik</CheckBox>
-                            <CheckBox>Schulautonome Vertiefungsgegenstände</CheckBox>
-                        </TreeViewItem>
-
-                        <TreeViewItem Header="Wirtschaftsingenieure – Maschinenbau" IsExpanded="False">
-                            <CheckBox>Unternehmensführung u. Wirtschaftsrecht mit Übungen in (Business Englisch)</CheckBox>
-                            <CheckBox>Betriebstechnik</CheckBox>
-                            <CheckBox>Informatik und Informationssysteme</CheckBox>
-                            <CheckBox>Konstruktion und Berechnung</CheckBox>
-                            <CheckBox>Werkstoff- und Fertigungstechnik</CheckBox>
-                            <CheckBox>Maschinen, Anlagen, Automatisierung</CheckBox>
-                            <CheckBox>Laboratorium</CheckBox>
-                        </TreeViewItem>
-
-                        <TreeViewItem Header="Informationstechnik" IsExpanded="False">
-                            <CheckBox>Wirtschaft und Recht</CheckBox>
-                            <CheckBox>Softwareentwicklung</CheckBox>
-                            <CheckBox>Informationstechnische Projekte</CheckBox>
-                            <CheckBox>Informationssysteme</CheckBox>
-                            <CheckBox>Systemtechnik</CheckBox>
-                            <CheckBox>Cloud Computing und industrielle Technologien</CheckBox>
-                            <CheckBox>Medientechnik</CheckBox>
-                            <CheckBox>Netzwerktechnik</CheckBox>
-                            <CheckBox>IT-Sicherheit</CheckBox>
-                        </TreeViewItem>
-                        
-                    </TreeView>
-                </StackPanel>
             </StackPanel>
+            
+           
         </DockPanel>
     </Viewbox>
 </Page>

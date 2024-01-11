@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using ITP_Mentoring_WPF;
 
 namespace WPF_Mentoring.Pages
@@ -22,7 +23,7 @@ namespace WPF_Mentoring.Pages
     public partial class Registration : Page
     {
         public static MainWindow main;
-        private List<string> ausgewaehlteFaecher = new List<string>();
+        private List<object> ausgewaehlteFaecher = new List<object>();
 
         public Registration()
         {
@@ -57,9 +58,9 @@ namespace WPF_Mentoring.Pages
 
             if (checkBox != null)
             {
-                string fachName = checkBox.Content.ToString();
-                ausgewaehlteFaecher.Add(fachName);
-
+                
+                ausgewaehlteFaecher.Add(checkBox.Content);
+                ChosenSubjectsLabelUpdater();
                 // Hier kannst du die Liste 'ausgewaehlteFaecher' weiterverwenden
                 // Zum Beispiel: ListBox.ItemsSource = ausgewaehlteFaecher;
             }
@@ -71,12 +72,20 @@ namespace WPF_Mentoring.Pages
 
             if (checkBox != null)
             {
-                string fachName = checkBox.Content.ToString();
-                ausgewaehlteFaecher.Remove(fachName);
-
+               
+                ausgewaehlteFaecher.Remove(checkBox.Content);
+                ChosenSubjectsLabelUpdater();
                 // Hier kannst du die Liste 'ausgewaehlteFaecher' weiterverwenden
                 // Zum Beispiel: ListBox.ItemsSource = ausgewaehlteFaecher;
             }
         }
+        private void ChosenSubjectsLabelUpdater()
+        {
+               
+                string ergebnisString = string.Join(", ", ausgewaehlteFaecher);
+            chosen_subjects_label.Text = "Ausgewählte Fächer: " + ergebnisString;
+        }
+
+        
     }
 }
