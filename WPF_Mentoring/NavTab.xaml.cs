@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_Mentoring.Pages;
+using WPF_Monitoring.Pages;
 
 namespace WPF_Mentoring
 {
@@ -37,7 +38,7 @@ namespace WPF_Mentoring
                 case "NAV":
                     main.rahmen_frame.Content = new NAV();
                     break;
-                case "Mentoren":
+                case "Mentor":
                     main.rahmen_frame.Content = new Mentor();
                     break;
                 case "Einstellungen":
