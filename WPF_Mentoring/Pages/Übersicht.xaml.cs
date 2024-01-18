@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_Mentoring.Classes;
+using WPF_Monitoring.Pages;
 
 namespace WPF_Mentoring.Pages
 {
@@ -25,6 +26,7 @@ namespace WPF_Mentoring.Pages
         public Übersicht()
         {
             InitializeComponent();
+            main.delNav();
         }
 
         private void mentoren(object sender, RoutedEventArgs e)

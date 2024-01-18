@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,7 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using ITP_Mentoring_WPF;
+using WPF_Mentoring.Classes;
 
 namespace WPF_Mentoring.Pages
 {
@@ -22,11 +26,11 @@ namespace WPF_Mentoring.Pages
     public partial class Registration : Page
     {
         public static MainWindow main;
-        List<string> faecher = new List<string>();
+        private List<object> ausgewaehlteFaecher = new List<object>();
+
         public Registration()
         {
             InitializeComponent();
-           
         }
         private void MenuItem_Anmeldung_Click(object sender, RoutedEventArgs e)
         {
@@ -34,28 +38,43 @@ namespace WPF_Mentoring.Pages
         }
         private List<TreeViewItem> selectedItems = new List<TreeViewItem>();
 
-        private void subjects_TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        {
-            TreeViewItem selectedItem = subjects_TreeView.SelectedItem as TreeViewItem;
+        private static readonly PropertyInfo IsSelectionChangeActiveProperty = typeof(TreeView).GetProperty("IsSelectionChangeActive", BindingFlags.NonPublic | BindingFlags.Instance);
 
-            if (selectedItem != null)
+        
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+
+            if (checkBox != null)
             {
-                if (selectedItems.Contains(selectedItem))
-                {
-                    selectedItems.Remove(selectedItem);
-                }
-                else
-                {
-                    selectedItems.Add(selectedItem);
-                }
+                
+                ausgewaehlteFaecher.Add(checkBox.Content);
+                ChosenSubjectsLabelUpdater();
+                // Hier kannst du die Liste 'ausgewaehlteFaecher' weiterverwenden
+                // Zum Beispiel: ListBox.ItemsSource = ausgewaehlteFaecher;
             }
         }
 
-
-
-        private void search_treeview_SelectionChanged(object sender, RoutedEventArgs e)
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            
+            CheckBox checkBox = sender as CheckBox;
+
+            if (checkBox != null)
+            {
+               
+                ausgewaehlteFaecher.Remove(checkBox.Content);
+                ChosenSubjectsLabelUpdater();
+                // Hier kannst du die Liste 'ausgewaehlteFaecher' weiterverwenden
+                // Zum Beispiel: ListBox.ItemsSource = ausgewaehlteFaecher;
+            }
         }
+        private void ChosenSubjectsLabelUpdater()
+        {
+               
+                string ergebnisString = string.Join(", ", ausgewaehlteFaecher);
+            chosen_subjects_label.Text = "Ausgewählte Fächer: " + ergebnisString;
+        }
+
+        
     }
 }

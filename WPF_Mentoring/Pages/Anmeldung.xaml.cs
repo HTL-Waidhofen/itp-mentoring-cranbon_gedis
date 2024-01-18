@@ -25,6 +25,7 @@ namespace WPF_Mentoring.Pages
         public Anmeldung()
         {
             InitializeComponent();
+            //main.delNav();
         }
         private void anmeldung(object sender, RoutedEventArgs e)
         {
@@ -47,7 +48,7 @@ namespace WPF_Mentoring.Pages
             }
             else
             {
-                main.rahmen_frame.Content = new Registration();
+                main.rahmen_frame.Content = new Übersicht();
             }
         }
 
