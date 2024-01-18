@@ -58,9 +58,8 @@ namespace WPF_Mentoring.Classes
             }
             return authenCode;
         }
-        public void SendEmail(string toEmail)
+        public static void SendEmail(string toEmail,string code)
         {
-            string code = GetAuthenCode();
             var fromAddress = new MailAddress("CranbonGedis@outlook.de");
             var toAddress = new MailAddress(toEmail);
             const string fromPassword = "CraN8onGeydis#3AHIT";
