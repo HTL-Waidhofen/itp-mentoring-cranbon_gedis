@@ -25,6 +25,7 @@ namespace WPF_Monitoring.Pages
         public Einstellungen()
         {
             InitializeComponent();
+            main.createNav();
         }
 
         private void btnKonto_Click(object sender, RoutedEventArgs e)

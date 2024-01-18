@@ -8,11 +8,12 @@
       
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="600"
+      xmlns:muxm="using:Microsoft.UI.Xaml.Media" xmlns:nav="clr-namespace:WPF_Mentoring"
       Title="Registration" Background="#272f34">
     <Page.Resources></Page.Resources>
     <Viewbox Stretch="Uniform" StretchDirection="Both">
-        
         <DockPanel LastChildFill="True">
+            <Button Content="Back" Command="NavigationCommands.BrowseBack"  Padding="5" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
             <StackPanel Orientation="Vertical">
                 <Label FontSize="30" HorizontalAlignment="Center">Registrierung</Label>
                 <StackPanel Orientation="Horizontal">
@@ -42,7 +43,7 @@
                                 <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Englisch</CheckBox>
                                 <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">GGP</CheckBox>
                                 <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Naturwissenschaften</CheckBox>
-#                            </TreeViewItem>
+                            </TreeViewItem>
 
                             <TreeViewItem Header="Mechatronik Fachschule" IsExpanded="False">
                                 <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Angewandte Informatik</CheckBox>
