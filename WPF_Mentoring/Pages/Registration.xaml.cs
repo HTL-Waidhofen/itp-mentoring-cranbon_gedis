@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,7 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using ITP_Mentoring_WPF;
+using WPF_Mentoring.Classes;
 
 namespace WPF_Mentoring.Pages
 {
@@ -22,56 +26,55 @@ namespace WPF_Mentoring.Pages
     public partial class Registration : Page
     {
         public static MainWindow main;
-        List<string> faecher = new List<string>();
+        private List<object> ausgewaehlteFaecher = new List<object>();
+
         public Registration()
         {
             InitializeComponent();
-            GetFaecher();
         }
-
-        private void GetFaecher()
-        {
-            faecher.Add("Mathmatik");
-            faecher.Add("Deutsch");
-            UpList();
-        }
-
         private void MenuItem_Anmeldung_Click(object sender, RoutedEventArgs e)
         {
             main.rahmen_frame.Content = new Anmeldung();
         }
+        private List<TreeViewItem> selectedItems = new List<TreeViewItem>();
 
+        private static readonly PropertyInfo IsSelectionChangeActiveProperty = typeof(TreeView).GetProperty("IsSelectionChangeActive", BindingFlags.NonPublic | BindingFlags.Instance);
 
-
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e) // code for searching items in listbox
+        
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            if (searchTextBox.Text != "")
+            CheckBox checkBox = sender as CheckBox;
+
+            if (checkBox != null)
             {
-                string sort = searchTextBox.Text;
-                sort = sort[0].ToString().ToUpper() + sort.Substring(1);
-                var gesorteteFaecher =
-                    from faecher in faecher
-                    where faecher.StartsWith(sort)
-                    select faecher;
-                subjects_Listbox.Items.Clear();
-                foreach (string s in gesorteteFaecher)
-                {
-                    subjects_Listbox.Items.Add(s);
-                }
-            }
-            else
-            {
-                UpList();
+                
+                ausgewaehlteFaecher.Add(checkBox.Content);
+                ChosenSubjectsLabelUpdater();
+                // Hier kannst du die Liste 'ausgewaehlteFaecher' weiterverwenden
+                // Zum Beispiel: ListBox.ItemsSource = ausgewaehlteFaecher;
             }
         }
 
-        private void UpList()
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            subjects_Listbox.Items.Clear();
-            foreach (string s in faecher)
+            CheckBox checkBox = sender as CheckBox;
+
+            if (checkBox != null)
             {
-                subjects_Listbox.Items.Add(s);
+               
+                ausgewaehlteFaecher.Remove(checkBox.Content);
+                ChosenSubjectsLabelUpdater();
+                // Hier kannst du die Liste 'ausgewaehlteFaecher' weiterverwenden
+                // Zum Beispiel: ListBox.ItemsSource = ausgewaehlteFaecher;
             }
         }
+        private void ChosenSubjectsLabelUpdater()
+        {
+               
+                string ergebnisString = string.Join(", ", ausgewaehlteFaecher);
+            chosen_subjects_label.Text = "Ausgewählte Fächer: " + ergebnisString;
+        }
+
+        
     }
 }
