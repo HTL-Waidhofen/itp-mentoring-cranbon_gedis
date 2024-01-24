@@ -110,7 +110,10 @@ namespace WPF_Mentoring.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            main.rahmen_frame.Content = new Mentorensuche();
+            if(isMentor.IsChecked == true)
+            {
+                Benutzer benutzer = new Benutzer(email.Text, name.Text, password.Text, true);
+            }
         }
 
         private void passwortCheck_Passwordbox_TextChanged(object sender, TextChangedEventArgs e)

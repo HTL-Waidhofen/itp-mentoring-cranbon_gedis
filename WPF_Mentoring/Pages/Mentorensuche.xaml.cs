@@ -30,15 +30,23 @@ namespace WPF_Mentoring.Pages
         {
             InitializeComponent();
             MeineDaten = new ObservableCollection<DeinDatenTyp>();
-            MeineDaten.Add(new DeinDatenTyp { Eigenschaft1 = "Wert1", Eigenschaft2 = "Wert2" });
-            MeineDaten.Add(new DeinDatenTyp { Eigenschaft1 = "Wert3", Eigenschaft2 = "Wert4" });
+            MeineDaten.Add(new DeinDatenTyp { Name = "Wert1", Abteilung = "Wert2" });
+            MeineDaten.Add(new DeinDatenTyp { Name = "Wert3", Abteilung = "Wert4" });
+            MeineDaten.Add(new DeinDatenTyp { Name = "Wert3", Abteilung = "Wert4" });
+            MeineDaten.Add(new DeinDatenTyp { Name = "Wert3", Abteilung = "Wert4" });
+            MeineDaten.Add(new DeinDatenTyp { Name = "Wert3", Abteilung = "Wert4" });
+            MeineDaten.Add(new DeinDatenTyp { Name = "Wert3", Abteilung = "Wert4" });
+            MeineDaten.Add(new DeinDatenTyp { Name = "Wert3", Abteilung = "Wert4" });
+            MeineDaten.Add(new DeinDatenTyp { Name = "Wert3", Abteilung = "Wert4" });
+
             MeineDataGrid.ItemsSource = MeineDaten;
 
         }
         public class DeinDatenTyp
         {
-            public string Eigenschaft1 { get; set; }
-            public string Eigenschaft2 { get; set; }
+            public string Name { get; set; }
+            public string Abteilung { get; set; }
+            public string AusgewählterWert { get; set; }
             // Füge weitere Eigenschaften nach Bedarf hinzu.
         }
 
@@ -50,6 +58,39 @@ namespace WPF_Mentoring.Pages
         {
 
         }
+        /* using System;
+using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Controls;
+
+public partial class MainWindow : Window
+{
+    public ObservableCollection<DeinDatenTyp> MeineDaten { get; set; }
+
+    public MainWindow()
+    {
+        InitializeComponent();
+
+        MeineDaten = new ObservableCollection<DeinDatenTyp>();
+        MeineDaten.Add(new DeinDatenTyp { Eigenschaft1 = "Wert1", Eigenschaft2 = "Wert2" });
+        MeineDaten.Add(new DeinDatenTyp { Eigenschaft1 = "Wert3", Eigenschaft2 = "Wert4" });
+
+        MeineDataGrid.ItemsSource = MeineDaten;
+    }
+
+    private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (MeineDataGrid.SelectedItem != null)
+        {
+            // Hier kannst du auf den ausgewählten Wert zugreifen und speichern.
+            DeinDatenTyp ausgewaehlteDaten = (DeinDatenTyp)MeineDataGrid.SelectedItem;
+
+            // Beispiel: Zeige eine MessageBox mit dem ausgewählten Wert an.
+            MessageBox.Show($"Ausgewählter Wert: {ausgewaehlteDaten.Eigenschaft1}");
+        }
+    }
+}
+*/
 
     }
 }

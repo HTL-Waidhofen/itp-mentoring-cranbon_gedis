@@ -11,16 +11,15 @@ namespace WPF_Mentoring.Classes
         public string Beschreibung { get; set; } // generelle infos kann leer sein
         public string KlasseOderKürzel { get; set; }
         public List<string> MentoringFächer { get; set; }
-        public int Bewertung { get; set; }
-        public Mentor(string email, string name, string password, string beschreibung, string klasseOderKürzel, List<string> mentoringFächer, int bewertung)
+        public Mentor(string email, string name, string password, string beschreibung, string klasseOderKürzel, int bewertung)
         {
             base.Email = email;
             base.Name = name;
             base.Password = password;
             Beschreibung = beschreibung;
             KlasseOderKürzel = klasseOderKürzel;
-            MentoringFächer = mentoringFächer;
         }
+        public Mentor() { }
 
     }
 }
