@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+
 namespace WPF_Mentoring.Pages
 {
     /// <summary>
@@ -21,29 +23,34 @@ namespace WPF_Mentoring.Pages
     /// </summary>
     public partial class Mentorensuche : Page
     {
-        private ObservableCollection<string> daten = new ObservableCollection<string>();
         public static MainWindow main;
+        public ObservableCollection<DeinDatenTyp> MeineDaten { get; set; }
 
         public Mentorensuche()
         {
             InitializeComponent();
+            MeineDaten = new ObservableCollection<DeinDatenTyp>();
+            MeineDaten.Add(new DeinDatenTyp { Eigenschaft1 = "Wert1", Eigenschaft2 = "Wert2" });
+            MeineDaten.Add(new DeinDatenTyp { Eigenschaft1 = "Wert3", Eigenschaft2 = "Wert4" });
+            MeineDataGrid.ItemsSource = MeineDaten;
 
-            // Beispiel-Daten hinzufügen
-            daten.Add("Banane");
-            daten.Add("Apfel");
-            daten.Add("Orange");
-            daten.Add("Erdbeere");
-
-            // ListBox mit Datenquelle verbinden
-            MeineListBox.ItemsSource = daten;
+        }
+        public class DeinDatenTyp
+        {
+            public string Eigenschaft1 { get; set; }
+            public string Eigenschaft2 { get; set; }
+            // Füge weitere Eigenschaften nach Bedarf hinzu.
         }
 
         private void SortierenButton_Click(object sender, RoutedEventArgs e)
         {
-            // Liste sortieren
-            daten = new ObservableCollection<string>(daten.OrderBy(x => x));
-            MeineListBox.ItemsSource = daten;
+            
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
 

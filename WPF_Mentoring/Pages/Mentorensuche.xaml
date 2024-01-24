@@ -36,20 +36,19 @@
 
                         
 
-                        <ui:Button Content="Weiter"  Icon="ArrowRight12" Appearance="Primary" Margin="65,15,0,0" Click="Button_Click" />
+                        <ui:Button Content="Weiter"  Icon="ArrowRight12" Appearance="Primary" Margin="65,15,0,0" Click="Button_Click" Cursor="IBeam" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="40,0,0,0">
-                        <ListBox AllowDrop="True"  Width="600" Height="500" x:Name="mentoren_Listbox" Margin="9,5">
-                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
-                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
-                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
-                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
-                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
-                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
-                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
-                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                        <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding DeineObservableCollection}" x:Name="MeineDataGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Spaltenname" Binding="{Binding Eigenschaft}" CanUserSort="True"/>
+                                <DataGridTextColumn Header="Spaltenname" Binding="{Binding Eigenschaft}" CanUserSort="True"/>
+                                <DataGridTextColumn Header="Spaltenname" Binding="{Binding Eigenschaft}" CanUserSort="True"/>
+                                <DataGridTextColumn Header="Spaltenname" Binding="{Binding Eigenschaft}" CanUserSort="True"/>
+                                <!-- Weitere Spalten hinzufügen -->
+                            </DataGrid.Columns>
+                            </DataGrid>
 
-                        </ListBox>
 
 
 

@@ -53,9 +53,9 @@
                         <Label MaxWidth="250" Margin="0,10,0,0">Email:</Label>
                         <TextBox x:Name="email" MaxWidth="250"></TextBox>
                         <Label Margin="0,10,0,0">Passwort:</Label>
-                        <ui:PasswordBox x:Name="password" IsEnabled="True" MaxWidth="250" PasswordChanged="passwordCheck"></ui:PasswordBox>
+                        <ui:PasswordBox x:Name="password" IsEnabled="True" MaxWidth="250" PasswordChar="●" PasswordChanged="passwordCheck" Cursor="IBeam"></ui:PasswordBox>
                         <Label Margin="0,10,0,0">Passwort erneut eingeben:</Label>
-                        <ui:PasswordBox  x:Name="passwortCheck_Passwordbox" IsEnabled="True" MaxWidth="250" PasswordChanged="passwordCheck" ></ui:PasswordBox>
+                        <ui:PasswordBox  x:Name="passwortCheck_Passwordbox" IsEnabled="True" PasswordChar="●" MaxWidth="250" PasswordChanged="passwordCheck" TextChanged="passwortCheck_Passwordbox_TextChanged" Cursor="IBeam" ></ui:PasswordBox>
                         <Label x:Name="checkpassword" Foreground="Red"></Label>
                         <StackPanel Margin="0" Orientation="Horizontal">
                             <Label Margin="75,12,10,10">Mentor</Label>

@@ -112,5 +112,10 @@ namespace WPF_Mentoring.Pages
         {
             main.rahmen_frame.Content = new Mentorensuche();
         }
+
+        private void passwortCheck_Passwordbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
