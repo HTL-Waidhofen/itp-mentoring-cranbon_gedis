@@ -9,18 +9,54 @@
       Title="Mentorensuche" Background="#272f34">
 
     <Viewbox Stretch="Uniform" StretchDirection="Both">
-        <DockPanel LastChildFill="True" Width="1163">
-            <ListView x:Name="employeeListView" Margin="10">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="120"/>
-                        <GridViewColumn Header="Stufe" DisplayMemberBinding="{Binding Stufe}" Width="80"/>
-                        <GridViewColumn Header="Abteilung" DisplayMemberBinding="{Binding Abteilung}" Width="120"/>
-                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" Width="200"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+        <DockPanel LastChildFill="True" Width="1263">
 
+            <StackPanel Orientation="Vertical" Width="1099">
+
+                <Label FontSize="30" HorizontalAlignment="Center">Mentorensuche</Label>
+                <StackPanel Orientation="Horizontal" Height="585" Width="1130">
+
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,120" Height="555">
+
+                        <ui:Button Icon="ArrowLeft12" Command="NavigationCommands.BrowseBack" Margin="0,0,0,30">Back</ui:Button>
+                        <Label MaxWidth="250">Suche:</Label>
+                        <TextBox x:Name="Search_Textbox" IsReadOnly="False" IsEnabled="True" Width="250"></TextBox>
+                        <Label MaxWidth="250" Margin="0,10,0,0">Filtern:</Label>
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <ComboBox Width="80" Margin="0,0,0,0" >
+                                <ComboBoxItem>Name</ComboBoxItem>
+                                <ComboBoxItem>Abteilung</ComboBoxItem>
+                                <ComboBoxItem>Fächer</ComboBoxItem>
+                                <ComboBoxItem>Stufe</ComboBoxItem>
+                                
+                            </ComboBox>
+                        </StackPanel>
+
+                        
+
+                        <ui:Button Content="Weiter"  Icon="ArrowRight12" Appearance="Primary" Margin="65,15,0,0" Click="Button_Click" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="40,0,0,0">
+                        <ListBox AllowDrop="True"  Width="600" Height="500" x:Name="mentoren_Listbox" Margin="9,5">
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+
+                        </ListBox>
+
+
+
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
 
 
         </DockPanel>

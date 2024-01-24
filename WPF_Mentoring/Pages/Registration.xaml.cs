@@ -114,7 +114,6 @@ namespace WPF_Mentoring.Pages
             {
                 Benutzer benutzer = new Benutzer(email.Text, name.Text, password.Text, true);
             }
-            
         }
     }
 }

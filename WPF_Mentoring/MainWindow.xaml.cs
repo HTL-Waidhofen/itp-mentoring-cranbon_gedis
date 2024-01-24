@@ -41,6 +41,7 @@ namespace WPF_Mentoring
             WPF_Mentoring.Pages.Mentor.main = this;
             Mentorensuche.main = this;
             NavTab.main = this;
+
         }
         public void createNav()
         {
