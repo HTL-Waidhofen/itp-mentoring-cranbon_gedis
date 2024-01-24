@@ -52,7 +52,7 @@
 
                     <!-- Fächer-Inhalt -->
                     <StackPanel x:Name="FaecherPanel" Visibility="Collapsed" Margin="20">
-                        <TextBlock FontSize="30" Foreground="White">Fächer-Einstellungen</TextBlock>
+                        <TextBlock FontSize="30" Foreground="White">Fächer</TextBlock>
                         <!-- Hier könnten Fächer aus einer ListBox geladen und angezeigt werden -->
                             <ListBox x:Name="ausgewählteFächer" DisplayMemberPath="Name" Width="200" Height="200" Margin="0,10,0,10"/>
                             <Button Content="Aktualisieren" Width="100" HorizontalAlignment="Left"/>
