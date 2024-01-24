@@ -8,7 +8,7 @@ namespace WPF_Mentoring.Classes
 {
     public class Mentor : Benutzer
     {
-        public string Beschreibung { get; set; } // generelle infos kann lehr sein
+        public string Beschreibung { get; set; } // generelle infos kann leer sein
         public string KlasseOderKürzel { get; set; }
         public List<string> MentoringFächer { get; set; }
         public int Bewertung { get; set; }

@@ -107,5 +107,10 @@ namespace WPF_Mentoring.Pages
                 checkpassword.Content = "Passwörter stimmen nicht überrein!";
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            main.rahmen_frame.Content = new Mentorensuche();
+        }
     }
 }
