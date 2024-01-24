@@ -16,5 +16,6 @@ namespace WPF_Mentoring.Classes
             Klasse = klasse;
             Fächer = fächer;
         }
+        public Schueler() { }
     }
 }

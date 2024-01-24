@@ -59,11 +59,12 @@
                         <Label x:Name="checkpassword" Foreground="Red"></Label>
                         <StackPanel Margin="0" Orientation="Horizontal">
                             <Label Margin="75,12,10,10">Mentor</Label>
-                            <CheckBox Margin="6"></CheckBox>
+                            <CheckBox x:Name="isMentor" Margin="6"></CheckBox>
 
                         </StackPanel>
                         
-                        <ui:Button Content="Registrieren"  Icon="Person12" Appearance="Primary" Margin="65,0,0,0" Click="Button_Click" />
+
+                        <ui:Button Content="Registrieren"  Icon="Person12" Appearance="Primary" Margin="65,0,0,0" Click="Button_Click"/>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="40,0,0,0">
                         <TreeView AllowDrop="True"  Width="600" Height="300" x:Name="subjects_TreeView" Margin="9,5" CheckBox.Checked="CheckBox_Checked" CheckBox.Unchecked="CheckBox_Unchecked">

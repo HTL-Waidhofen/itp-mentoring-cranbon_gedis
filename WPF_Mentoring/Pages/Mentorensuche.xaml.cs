@@ -28,6 +28,20 @@ namespace WPF_Mentoring.Pages
         {
             InitializeComponent();
 
+            main.createNav();
+        }
+        public class Mitarbeiter
+        {
+            public string Name { get; set; }
+            public string Stufe { get; set; }
+            public string Abteilung { get; set; }
+            public string Email { get; set; }
+            List<Mitarbeiter> mitarbeiterListe = new List<Mitarbeiter>
+            {
+            new Mitarbeiter { Name = "Max Mustermann", Stufe = "Senior", Abteilung = "Entwicklung", Email = "max.mustermann@example.com" }
+                // Füge weitere Mitarbeiter hinzu...
+            };
+
             // Beispiel-Daten hinzufügen
             daten.Add("Banane");
             daten.Add("Apfel");
