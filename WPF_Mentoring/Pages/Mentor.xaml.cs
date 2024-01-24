@@ -27,5 +27,10 @@ namespace WPF_Mentoring.Pages
             InitializeComponent();
             main.createNav();
         }
+
+        private void absenden_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
