@@ -20,7 +20,7 @@ namespace WPF_Mentoring.Classes
             string pattern = @"^[a-zA-Z]+\.[a-zA-Z]+@htlwy\.at$";
             return Regex.IsMatch(email, pattern);
         }
-        public bool IsCorrectPassword(string password, string email)
+        public static bool IsCorrectPassword(string password, string email)
         {
             string connectionString = "Data Source=Mentoring.db;Version=3;";
 

@@ -23,12 +23,16 @@ namespace WPF_Mentoring
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Benutzer user;
+        public WPF_Mentoring.Classes.Mentor mentor;
+        public Schueler schueler;
         public MainWindow()
         {
 
 
             InitializeComponent();
             rahmen_frame.Content = new Anmeldung();
+
 
             WPF_Mentoring.Pages.Anmeldung.main = this;
             Übersicht.main = this;

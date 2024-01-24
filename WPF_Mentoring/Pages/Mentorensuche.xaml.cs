@@ -25,6 +25,7 @@ namespace WPF_Mentoring.Pages
         public Mentorensuche()
         {
             InitializeComponent();
+            main.createNav();
         }
         public class Mitarbeiter
         {
