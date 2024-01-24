@@ -36,7 +36,7 @@
 
                         
 
-                        <ui:Button Content="Weiter"  Icon="ArrowRight12" Appearance="Primary" Margin="65,15,0,0" Click="Button_Click" />
+                        <ui:Button Content="Weiter"  Icon="ArrowRight12" Appearance="Primary" Margin="65,15,0,0" Click="SortierenButton_Click" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="40,0,0,0">
                         <ListBox AllowDrop="True"  Width="600" Height="500" x:Name="mentoren_Listbox" Margin="9,5">

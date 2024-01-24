@@ -11,10 +11,10 @@ namespace WPF_Mentoring.Classes
         public string Klasse { get; set; }
         public List<string> Fächer { get; set; }
 
-        public Schueler(string email, string name, string passwort, string klasse, List<string> fächer) : base(email, name, passwort, false)
+        public Schueler(string email, string name, string passwort, string klasse, List<string> facher) : base(email, name, passwort, false)
         {
             Klasse = klasse;
-            Fächer = fächer;
+            Fächer = facher;
         }
         public Schueler() { }
     }

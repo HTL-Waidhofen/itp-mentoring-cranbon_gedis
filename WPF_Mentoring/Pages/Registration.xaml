@@ -19,7 +19,7 @@
                 <Label FontSize="30" HorizontalAlignment="Center">Registrierung</Label>
                 <StackPanel Orientation="Horizontal" Height="585" Width="1130">
                     
-                    <StackPanel Orientation="Vertical" Margin="0,10,0,120" Height="555">
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,100" Height="555">
                         
                         <ui:Button Icon="ArrowLeft12" Command="NavigationCommands.BrowseBack" Margin="0,0,0,30">Back</ui:Button>
                         <Label MaxWidth="250">Name:</Label>
@@ -31,14 +31,14 @@
                         
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                             
-                            <ComboBox Width="80" >
+                            <ComboBox Width="80" x:Name="stufe" >
                                 <ComboBoxItem>1</ComboBoxItem>
                                 <ComboBoxItem>2</ComboBoxItem>
                                 <ComboBoxItem>3</ComboBoxItem>
                                 <ComboBoxItem>4</ComboBoxItem>
                                 <ComboBoxItem>5</ComboBoxItem>
                             </ComboBox>
-                            <ComboBox Width="155" Margin="15,0,0,0">
+                            <ComboBox Width="155" Margin="15,0,0,0" x:Name="abteilung">
                                 <ComboBoxItem>IT</ComboBoxItem>
                                 <ComboBoxItem>WING</ComboBoxItem>
                                 <ComboBoxItem>Mechatronik</ComboBoxItem>
@@ -53,9 +53,9 @@
                         <Label MaxWidth="250" Margin="0,10,0,0">Email:</Label>
                         <TextBox x:Name="email" MaxWidth="250"></TextBox>
                         <Label Margin="0,10,0,0">Passwort:</Label>
-                        <ui:PasswordBox x:Name="password" IsEnabled="True" MaxWidth="250" PasswordChanged="passwordCheck"></ui:PasswordBox>
+                        <PasswordBox x:Name="password" IsEnabled="True" MaxWidth="250" PasswordChanged="passwordCheck"  PasswordChar="●"></PasswordBox>
                         <Label Margin="0,10,0,0">Passwort erneut eingeben:</Label>
-                        <ui:PasswordBox  x:Name="passwortCheck_Passwordbox" IsEnabled="True" MaxWidth="250" PasswordChanged="passwordCheck" ></ui:PasswordBox>
+                        <PasswordBox  x:Name="passwortCheck_Passwordbox" IsEnabled="True" MaxWidth="250" PasswordChanged="passwordCheck"  PasswordChar="●"></PasswordBox>
                         <Label x:Name="checkpassword" Foreground="Red"></Label>
                         <StackPanel Margin="0" Orientation="Horizontal">
                             <Label Margin="75,12,10,10">Mentor</Label>

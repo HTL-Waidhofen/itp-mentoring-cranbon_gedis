@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -39,24 +38,14 @@ namespace WPF_Mentoring.Pages
             List<Mitarbeiter> mitarbeiterListe = new List<Mitarbeiter>
             {
             new Mitarbeiter { Name = "Max Mustermann", Stufe = "Senior", Abteilung = "Entwicklung", Email = "max.mustermann@example.com" }
-                // Füge weitere Mitarbeiter hinzu...
+                
             };
-
-            // Beispiel-Daten hinzufügen
-            daten.Add("Banane");
-            daten.Add("Apfel");
-            daten.Add("Orange");
-            daten.Add("Erdbeere");
-
-            // ListBox mit Datenquelle verbinden
-            MeineListBox.ItemsSource = daten;
         }
 
         private void SortierenButton_Click(object sender, RoutedEventArgs e)
         {
             // Liste sortieren
             daten = new ObservableCollection<string>(daten.OrderBy(x => x));
-            MeineListBox.ItemsSource = daten;
         }
     }
 }

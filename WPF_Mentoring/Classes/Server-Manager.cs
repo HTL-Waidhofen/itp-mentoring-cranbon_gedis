@@ -208,7 +208,6 @@ namespace WPF_Mentoring.Classes
 
                 using (var cmd = new SQLiteCommand(con))
                 {
-
                     cmd.CommandText = "INSERT INTO Schueler(email,klasse,faecher) VALUES(@email,@klasse,@faecher)";
                     string faecher = "";
                     for (int i = 0; i < schueler.Fächer.Count; i++)
@@ -219,11 +218,11 @@ namespace WPF_Mentoring.Classes
                             faecher += ",";
                         }
                     }
+                    cmd.Parameters.AddWithValue("@email", schueler.Email);
                     cmd.Parameters.AddWithValue("@klasse", schueler.Klasse);
                     cmd.Parameters.AddWithValue("@faecher", faecher);
                     cmd.Prepare();
                     cmd.ExecuteNonQuery();
-
                 }
             }
         }
@@ -295,7 +294,7 @@ namespace WPF_Mentoring.Classes
         }
         private static string loadConnectionString()
         {
-            return "DataSource=Mentoring.db;Version=3;";
+            return "DataSource=../../../Datenbank/Mentoring.db;Version=3;";
         }
 
         internal static void updatePassword(string email, string password)
