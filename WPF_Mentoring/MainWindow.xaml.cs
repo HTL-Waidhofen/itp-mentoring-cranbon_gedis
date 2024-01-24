@@ -23,6 +23,9 @@ namespace WPF_Mentoring
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Benutzer user;
+        public WPF_Mentoring.Classes.Mentor mentor;
+        public Schueler schueler;
         public MainWindow()
         {
 
@@ -30,13 +33,15 @@ namespace WPF_Mentoring
             InitializeComponent();
             rahmen_frame.Content = new Anmeldung();
 
+
             WPF_Mentoring.Pages.Anmeldung.main = this;
             Übersicht.main = this;
             Registration.main = this;
             Einstellungen.main = this;
             WPF_Mentoring.Pages.Mentor.main = this;
-            NAV.main = this;
+            Mentorensuche.main = this;
             NavTab.main = this;
+
         }
         public void createNav()
         {

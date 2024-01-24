@@ -41,7 +41,7 @@ namespace WPF_Mentoring.Pages
 
         private void suche(object sender, RoutedEventArgs e)
         {
-            main.rahmen_frame.Content = new NAV();
+            main.rahmen_frame.Content = new Mentorensuche();
         }
 
         private void abmelden(object sender, RoutedEventArgs e)

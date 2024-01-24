@@ -36,7 +36,7 @@ namespace WPF_Mentoring
                     main.rahmen_frame.Content = new Übersicht();
                     break;
                 case "NAV":
-                    main.rahmen_frame.Content = new NAV();
+                    main.rahmen_frame.Content = new Mentorensuche();
                     break;
                 case "Mentor":
                     main.rahmen_frame.Content = new Mentor();
