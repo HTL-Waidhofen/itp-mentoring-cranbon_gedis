@@ -22,6 +22,7 @@ namespace WPF_Mentoring.Pages
     public partial class Anmeldung : Page
     {
         public static MainWindow main;
+        private string authenCode;
         public Anmeldung()
         {
             InitializeComponent();
@@ -48,7 +49,28 @@ namespace WPF_Mentoring.Pages
             }
             else
             {
-                main.rahmen_frame.Content = new Übersicht();
+                try
+                {
+                    if (Authentification.IsCorrectPassword(password.Password, email.Text))
+                    {
+                        main.user = Server_Manager.loadAccbyEmail(email.Text);
+                        main.schueler = Server_Manager.loadSchuelerbyEmail(email.Text);
+                        main.mentor = Server_Manager.loadMentorbyEmail(email.Text);
+                        if(main.user.isMentor)
+                            main.rahmen_frame.Content = new Mentor();
+                        else
+                            main.rahmen_frame.Content = new Übersicht();
+                        
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Wrong Password", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Bitte geben Sie einen gültigen Account ein.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
@@ -56,9 +78,10 @@ namespace WPF_Mentoring.Pages
         {
             if(email.Text != "" && Authentification.IsValidEmail(email.Text))
             {
-                string authenCode = Authentification.GetAuthenCode();
+                authenCode = Authentification.GetAuthenCode();
                 Authentification.SendEmail(email.Text, authenCode);
-                MessageBox.Show("Der Code wurde an Ihre Email gesendet!", "Erfolgreich", MessageBoxButton.OK, MessageBoxImage.Information);
+                InputBox.Visibility = Visibility.Visible;
+                
             }
             else
             {
@@ -66,9 +89,32 @@ namespace WPF_Mentoring.Pages
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void YesButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (InputTextBox.Text == authenCode && newPassword.Text == newPasswordCheck.Text)
+                {
+                    Server_Manager.updatePassword(email.Text, newPassword.Text);
+                    MessageBox.Show("Ihr Passwort wurde zurückgesetzt!", "Erfolgreich", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Der Code ist falsch!", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Geben Sie eine Richtige Email an", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                InputTextBox.Text = "";
+                newPassword.Text = "";
+                newPasswordCheck.Text = "";
 
+                InputBox.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

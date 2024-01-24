@@ -9,19 +9,18 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Anmeldung">
 
-    <DockPanel Background="#272f34">
-
-
+    <Grid Background="#272f34">
+        
         <Viewbox Margin="0 20 0 0" StretchDirection="Both"  HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Width="299" Height="303">
                 <TextBlock Text="HTL-Mentoring" FontSize="24" FontWeight="Bold" Margin="0,10,0,10" HorizontalAlignment="Center" Foreground="White"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
                     <TextBlock Text="E-Mail:" Margin="0,8,0,0" Foreground="White"/>
-                    <TextBox x:Name="email" Width="150" Margin="33,0,0,0" Padding="5"/>
+                    <TextBox x:Name="email" Width="200" Margin="33,0,0,0" Padding="5"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
                     <TextBlock Text="Passwort:" Margin="0,10,0,0" Foreground="White"/>
-                    <PasswordBox x:Name="password" Width="150" Margin="20,0,0,0" Padding="5"/>
+                    <PasswordBox x:Name="password" MaxWidth="200" Width="200" Margin="20,0,0,0" Padding="5" PasswordChar="●"/>
                 </StackPanel>
                 <ui:Button Appearance="Primary" Content="Anmeldung" Click="Button_Click_anmeldung" HorizontalAlignment="Center" Width="150" Background="#0078D7" Foreground="White" Margin="0,10,0,0"/>
                 <Button Content="zur Registrierung" HorizontalAlignment="Center" Click="registrierung" Width="150" Margin="0,10,0,0"/>
@@ -30,5 +29,35 @@
                 </StackPanel>
             </StackPanel>
         </Viewbox>
-    </DockPanel>
+        <Grid x:Name="InputBox" Visibility="Hidden" HorizontalAlignment="Center">
+            <Grid Background="Black" Opacity="0.5"/>
+            <Border
+                MinWidth="1000"
+                Background="#272f34" 
+                BorderBrush="Black" 
+                BorderThickness="1" 
+                CornerRadius="0,55,0,55" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center">
+                <StackPanel>
+                    <TextBlock Margin="5" Text="Passwort zurücksetzten" Foreground="White" FontWeight="Bold" FontFamily="Cambria" HorizontalAlignment="Center" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Label Margin="20">Authen Code</Label>
+                        <TextBox MinWidth="150" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="InputTextBox"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Label Margin="20">Password</Label>
+                        <TextBox MinWidth="150" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="newPassword"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Label Margin="20">Password bestätigen</Label>
+                        <TextBox MinWidth="150" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="newPasswordCheck"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="YesButton" Margin="5" Content="Done" Background="{x:Null}" Click="YesButton_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
 </Page>

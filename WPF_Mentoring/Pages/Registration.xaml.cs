@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 using ITP_Mentoring_WPF;
+using Wpf.Ui.Controls;
 using WPF_Mentoring.Classes;
 
 namespace WPF_Mentoring.Pages
@@ -26,7 +27,7 @@ namespace WPF_Mentoring.Pages
     public partial class Registration : Page
     {
         public static MainWindow main;
-        private List<object> ausgewaehlteFaecher = new List<object>();
+        private List<string> ausgewaehlteFaecher = new List<string>();
 
         public Registration()
         {
@@ -36,7 +37,6 @@ namespace WPF_Mentoring.Pages
         {
             main.rahmen_frame.Content = new Anmeldung();
         }
-        private List<TreeViewItem> selectedItems = new List<TreeViewItem>();
 
         private static readonly PropertyInfo IsSelectionChangeActiveProperty = typeof(TreeView).GetProperty("IsSelectionChangeActive", BindingFlags.NonPublic | BindingFlags.Instance);
 
@@ -48,10 +48,8 @@ namespace WPF_Mentoring.Pages
             if (checkBox != null)
             {
                 
-                ausgewaehlteFaecher.Add(checkBox.Content);
+                ausgewaehlteFaecher.Add(checkBox.Content.ToString());
                 ChosenSubjectsLabelUpdater();
-                // Hier kannst du die Liste 'ausgewaehlteFaecher' weiterverwenden
-                // Zum Beispiel: ListBox.ItemsSource = ausgewaehlteFaecher;
             }
         }
 
@@ -62,19 +60,68 @@ namespace WPF_Mentoring.Pages
             if (checkBox != null)
             {
                
-                ausgewaehlteFaecher.Remove(checkBox.Content);
+                ausgewaehlteFaecher.Remove(checkBox.Content.ToString());
                 ChosenSubjectsLabelUpdater();
-                // Hier kannst du die Liste 'ausgewaehlteFaecher' weiterverwenden
-                // Zum Beispiel: ListBox.ItemsSource = ausgewaehlteFaecher;
+                
             }
         }
         private void ChosenSubjectsLabelUpdater()
         {
-               
                 string ergebnisString = string.Join(", ", ausgewaehlteFaecher);
             chosen_subjects_label.Text = "Ausgewählte Fächer: " + ergebnisString;
         }
+        private bool CheckPasswords()
+        {
 
-        
+            string erstesPasswort = password.Password;
+            string zweitesPasswort = passwortCheck_Passwordbox.Password;
+            if (string.IsNullOrEmpty(erstesPasswort) == true)
+            {
+                return false;
+            }
+            else if (string.Equals(erstesPasswort, zweitesPasswort))
+            {
+               return true;
+            }
+            
+            else
+            {
+                return false;
+            }
+
+        }
+
+        private void passwordCheck(object sender, RoutedEventArgs e)
+        {
+            if (CheckPasswords())
+            {
+
+                checkpassword.Foreground = Brushes.Green;
+                checkpassword.Content = "Passwörter stimmen überrein";
+               
+            }
+            else
+            {
+                checkpassword.Foreground = Brushes.Red;
+                checkpassword.Content = "Passwörter stimmen nicht überrein!";
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(isMentor.IsChecked == true)
+            {
+                main.schueler = new Schueler(email.Text, name.Text, password.Password, (stufe.Text+abteilung.Text), ausgewaehlteFaecher);
+                main.schueler.isMentor = true;
+            }
+            else
+            {
+                main.schueler = new Schueler(email.Text, name.Text, password.Password, (stufe.Text + abteilung.Text), ausgewaehlteFaecher);
+                main.schueler.isMentor = false;
+            }
+            Server_Manager.AddAcc(new Benutzer(email.Text, name.Text, main.schueler.Password, main.schueler.isMentor));
+            Server_Manager.AddSchueler(main.schueler);
+            main.rahmen_frame.Content = new Anmeldung();
+        }
     }
 }

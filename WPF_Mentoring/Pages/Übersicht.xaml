@@ -13,9 +13,7 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock FontSize="50" Margin="10" Foreground="White">Übersicht</TextBlock>
             <ListBox Margin="0 0 0 25">
-                <ListBoxItem>
-                    <Button HorizontalAlignment="Center" Width="200" FontSize="20" Click="mentoren">Mentoren</Button>
-                </ListBoxItem>
+                
                 <ListBoxItem>
                     <Button HorizontalAlignment="Center" Width="200" FontSize="20" Click="suche">Suche</Button>
                 </ListBoxItem>

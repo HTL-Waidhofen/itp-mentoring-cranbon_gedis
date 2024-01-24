@@ -1,0 +1,64 @@
+﻿<Page x:Class="WPF_Mentoring.Pages.Mentorensuche"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Mentorensuche" Background="#272f34">
+
+    <Viewbox Stretch="Uniform" StretchDirection="Both">
+        <DockPanel LastChildFill="True" Width="1263">
+
+            <StackPanel Orientation="Vertical" Width="1099">
+
+                <Label FontSize="30" HorizontalAlignment="Center">Mentorensuche</Label>
+                <StackPanel Orientation="Horizontal" Height="585" Width="1130">
+
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,120" Height="555">
+
+                        <ui:Button Icon="ArrowLeft12" Command="NavigationCommands.BrowseBack" Margin="0,0,0,30">Back</ui:Button>
+                        <Label MaxWidth="250">Suche:</Label>
+                        <TextBox x:Name="Search_Textbox" IsReadOnly="False" IsEnabled="True" Width="250"></TextBox>
+                        <Label MaxWidth="250" Margin="0,10,0,0">Filtern:</Label>
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <ComboBox Width="80" Margin="0,0,0,0" >
+                                <ComboBoxItem>Name</ComboBoxItem>
+                                <ComboBoxItem>Abteilung</ComboBoxItem>
+                                <ComboBoxItem>Fächer</ComboBoxItem>
+                                <ComboBoxItem>Stufe</ComboBoxItem>
+                                
+                            </ComboBox>
+                        </StackPanel>
+
+                        
+
+                        <ui:Button Content="Weiter"  Icon="ArrowRight12" Appearance="Primary" Margin="65,15,0,0" Click="SortierenButton_Click" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="40,0,0,0">
+                        <ListBox AllowDrop="True"  Width="600" Height="500" x:Name="mentoren_Listbox" Margin="9,5">
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+                            <ListBoxItem>Daniel Daurer Grießenberg 8 daniel.daurer@htlwy.at | Fächer: English Deitsch Mathe</ListBoxItem>
+
+                        </ListBox>
+
+
+
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+
+
+        </DockPanel>
+    </Viewbox>
+</Page>
