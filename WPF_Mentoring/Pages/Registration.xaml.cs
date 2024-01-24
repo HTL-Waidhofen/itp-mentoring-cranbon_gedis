@@ -50,8 +50,6 @@ namespace WPF_Mentoring.Pages
                 
                 ausgewaehlteFaecher.Add(checkBox.Content);
                 ChosenSubjectsLabelUpdater();
-                // Hier kannst du die Liste 'ausgewaehlteFaecher' weiterverwenden
-                // Zum Beispiel: ListBox.ItemsSource = ausgewaehlteFaecher;
             }
         }
 
@@ -64,8 +62,7 @@ namespace WPF_Mentoring.Pages
                
                 ausgewaehlteFaecher.Remove(checkBox.Content);
                 ChosenSubjectsLabelUpdater();
-                // Hier kannst du die Liste 'ausgewaehlteFaecher' weiterverwenden
-                // Zum Beispiel: ListBox.ItemsSource = ausgewaehlteFaecher;
+                
             }
         }
         private void ChosenSubjectsLabelUpdater()
@@ -79,11 +76,15 @@ namespace WPF_Mentoring.Pages
 
             string erstesPasswort = password.Password;
             string zweitesPasswort = passwortCheck_Passwordbox.Password;
-           
-            if (string.Equals(erstesPasswort, zweitesPasswort))
+            if (string.IsNullOrEmpty(erstesPasswort) == true)
+            {
+                return false;
+            }
+            else if (string.Equals(erstesPasswort, zweitesPasswort))
             {
                return true;
             }
+            
             else
             {
                 return false;

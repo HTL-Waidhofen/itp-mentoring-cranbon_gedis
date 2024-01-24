@@ -19,12 +19,16 @@
                 <Label FontSize="30" HorizontalAlignment="Center">Registrierung</Label>
                 <StackPanel Orientation="Horizontal" Height="585" Width="1130">
                     
-                    <StackPanel Orientation="Vertical" Margin="0,10,10,120" Height="555">
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,120" Height="555">
                         
                         <ui:Button Icon="ArrowLeft12" Command="NavigationCommands.BrowseBack" Margin="0,0,0,30">Back</ui:Button>
                         <Label MaxWidth="250">Name:</Label>
                         <TextBox x:Name="name" IsReadOnly="False" IsEnabled="True" Width="250"></TextBox>
-                        <Label MaxWidth="250" Margin="0,10,0,0">Klasse:</Label>
+                        <StackPanel Orientation="Horizontal">
+                            <Label MaxWidth="250" Margin="0,10,0,0">Klasse:</Label>
+                            <Label MaxWidth="250" Margin="60,10,0,0">Abteilung:</Label>
+                        </StackPanel>
+                        
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                             
                             <ComboBox Width="80" >
@@ -35,10 +39,10 @@
                                 <ComboBoxItem>5</ComboBoxItem>
                             </ComboBox>
                             <ComboBox Width="155" Margin="15,0,0,0">
-                                <ComboBoxItem>AHIT</ComboBoxItem>
-                                <ComboBoxItem>AFME</ComboBoxItem>
+                                <ComboBoxItem>IT</ComboBoxItem>
                                 <ComboBoxItem>WING</ComboBoxItem>
-                                <ComboBoxItem>AHMBA</ComboBoxItem>
+                                <ComboBoxItem>Mechatronik</ComboBoxItem>
+                                <ComboBoxItem>Maschienenbau</ComboBoxItem>
                                 <ComboBoxItem>ETEC</ComboBoxItem>
                                 
                             </ComboBox>
@@ -49,7 +53,7 @@
                         <Label MaxWidth="250" Margin="0,10,0,0">Email:</Label>
                         <TextBox x:Name="email" MaxWidth="250"></TextBox>
                         <Label Margin="0,10,0,0">Passwort:</Label>
-                        <ui:PasswordBox x:Name="password" IsEnabled="True" MaxWidth="250" ></ui:PasswordBox>
+                        <ui:PasswordBox x:Name="password" IsEnabled="True" MaxWidth="250" PasswordChanged="passwordCheck"></ui:PasswordBox>
                         <Label Margin="0,10,0,0">Passwort erneut eingeben:</Label>
                         <ui:PasswordBox  x:Name="passwortCheck_Passwordbox" IsEnabled="True" MaxWidth="250" PasswordChanged="passwordCheck" ></ui:PasswordBox>
                         <Label x:Name="checkpassword" Foreground="Red"></Label>
@@ -61,7 +65,7 @@
                         
                         <ui:Button Content="Registrieren"  Icon="Person12" Appearance="Primary" Margin="65,0,0,0" />
                     </StackPanel>
-                    <StackPanel Orientation="Vertical" Margin="80,0,0,0">
+                    <StackPanel Orientation="Vertical" Margin="40,0,0,0">
                         <TreeView AllowDrop="True"  Width="600" Height="300" x:Name="subjects_TreeView" Margin="9,5" CheckBox.Checked="CheckBox_Checked" CheckBox.Unchecked="CheckBox_Unchecked">
                             <TreeViewItem Header="Allgemeine Fächer" IsExpanded="False">
                                 <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Angewandte Mathematik</CheckBox>
@@ -135,7 +139,7 @@
                         </TreeView>
 
 
-                        <TextBox IsReadOnly="True" FontSize="18" x:Name="chosen_subjects_label" MaxWidth="590" Margin="30,0,0,0" Height="200" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" AllowDrop="True"/>
+                        <TextBox IsReadOnly="True" FontSize="18" x:Name="chosen_subjects_label" MaxWidth="590" Margin="30,0,0,0" Height="200" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" AllowDrop="True" Cursor="IBeam"/>
 
                     </StackPanel>
                 </StackPanel>
