@@ -20,9 +20,26 @@ namespace WPF_Mentoring.Pages
     /// </summary>
     public partial class Mentorensuche : Page
     {
+        public static MainWindow main;
+
         public Mentorensuche()
         {
             InitializeComponent();
         }
+        public class Mitarbeiter
+        {
+            public string Name { get; set; }
+            public string Stufe { get; set; }
+            public string Abteilung { get; set; }
+            public string Email { get; set; }
+            List<Mitarbeiter> mitarbeiterListe = new List<Mitarbeiter>
+            {
+            new Mitarbeiter { Name = "Max Mustermann", Stufe = "Senior", Abteilung = "Entwicklung", Email = "max.mustermann@example.com" }
+                // Füge weitere Mitarbeiter hinzu...
+            };
+
+
+        }
+            
     }
 }
