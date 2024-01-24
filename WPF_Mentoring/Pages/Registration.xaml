@@ -12,30 +12,60 @@
       Title="Registration" Background="#272f34">
     <Page.Resources></Page.Resources>
     <Viewbox Stretch="Uniform" StretchDirection="Both">
-        <DockPanel LastChildFill="True">
-            <Button Content="Back" Command="NavigationCommands.BrowseBack"  Padding="5" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-            <StackPanel Orientation="Vertical">
+        <DockPanel LastChildFill="True" Width="1163">
+           
+            <StackPanel Orientation="Vertical" Width="1099">
+                
                 <Label FontSize="30" HorizontalAlignment="Center">Registrierung</Label>
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Vertical" Margin="103,10,10,120">
-                        <Label>Name:</Label>
+                <StackPanel Orientation="Horizontal" Height="585" Width="1130">
+                    
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,120" Height="555">
+                        
+                        <ui:Button Icon="ArrowLeft12" Command="NavigationCommands.BrowseBack" Margin="0,0,0,30">Back</ui:Button>
+                        <Label MaxWidth="250">Name:</Label>
                         <TextBox x:Name="name" IsReadOnly="False" IsEnabled="True" Width="250"></TextBox>
-                        <Label>Klasse:</Label>
-                        <TextBox x:Name="klasse"></TextBox>
-                        <Label>Email:</Label>
-                        <TextBox x:Name="email"></TextBox>
-                        <Label>Passwort:</Label>
-                        <PasswordBox x:Name="password" IsEnabled="True" ></PasswordBox>
-                        <Label>Passwort erneut eingeben:</Label>
-                        <PasswordBox x:Name="passwortCheck_Passwordbox" IsEnabled="True"></PasswordBox>
-                        <StackPanel Margin="10" Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal">
+                            <Label MaxWidth="250" Margin="0,10,0,0">Klasse:</Label>
+                            <Label MaxWidth="250" Margin="60,10,0,0">Abteilung:</Label>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                            
+                            <ComboBox Width="80" >
+                                <ComboBoxItem>1</ComboBoxItem>
+                                <ComboBoxItem>2</ComboBoxItem>
+                                <ComboBoxItem>3</ComboBoxItem>
+                                <ComboBoxItem>4</ComboBoxItem>
+                                <ComboBoxItem>5</ComboBoxItem>
+                            </ComboBox>
+                            <ComboBox Width="155" Margin="15,0,0,0">
+                                <ComboBoxItem>IT</ComboBoxItem>
+                                <ComboBoxItem>WING</ComboBoxItem>
+                                <ComboBoxItem>Mechatronik</ComboBoxItem>
+                                <ComboBoxItem>Maschienenbau</ComboBoxItem>
+                                <ComboBoxItem>ETEC</ComboBoxItem>
+                                
+                            </ComboBox>
+
+
+                        </StackPanel>
+
+                        <Label MaxWidth="250" Margin="0,10,0,0">Email:</Label>
+                        <TextBox x:Name="email" MaxWidth="250"></TextBox>
+                        <Label Margin="0,10,0,0">Passwort:</Label>
+                        <ui:PasswordBox x:Name="password" IsEnabled="True" MaxWidth="250" PasswordChanged="passwordCheck"></ui:PasswordBox>
+                        <Label Margin="0,10,0,0">Passwort erneut eingeben:</Label>
+                        <ui:PasswordBox  x:Name="passwortCheck_Passwordbox" IsEnabled="True" MaxWidth="250" PasswordChanged="passwordCheck" ></ui:PasswordBox>
+                        <Label x:Name="checkpassword" Foreground="Red"></Label>
+                        <StackPanel Margin="0" Orientation="Horizontal">
                             <Label Margin="75,12,10,10">Mentor</Label>
                             <CheckBox Margin="6"></CheckBox>
 
                         </StackPanel>
-                        <ui:Button Content="Registrieren" Icon="Person12" Appearance="Primary" Margin="65,10,10,10" />
+                        
+                        <ui:Button Content="Registrieren"  Icon="Person12" Appearance="Primary" Margin="65,0,0,0" />
                     </StackPanel>
-                    <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Vertical" Margin="40,0,0,0">
                         <TreeView AllowDrop="True"  Width="600" Height="300" x:Name="subjects_TreeView" Margin="9,5" CheckBox.Checked="CheckBox_Checked" CheckBox.Unchecked="CheckBox_Unchecked">
                             <TreeViewItem Header="Allgemeine Fächer" IsExpanded="False">
                                 <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Angewandte Mathematik</CheckBox>
@@ -109,7 +139,7 @@
                         </TreeView>
 
 
-                        <TextBox IsReadOnly="True" FontSize="18" x:Name="chosen_subjects_label" MaxWidth="590" Margin="30,0,0,0" Height="200" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" AllowDrop="True"/>
+                        <TextBox IsReadOnly="True" FontSize="18" x:Name="chosen_subjects_label" MaxWidth="590" Margin="30,0,0,0" Height="200" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" AllowDrop="True" Cursor="IBeam"/>
 
                     </StackPanel>
                 </StackPanel>

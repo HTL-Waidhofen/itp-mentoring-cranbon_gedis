@@ -12,25 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF_Mentoring;
 
 namespace WPF_Mentoring.Pages
 {
     /// <summary>
-    /// Interaktionslogik für Mentor.xaml
+    /// Interaktionslogik für Mentorensuche.xaml
     /// </summary>
-    public partial class Mentor : Page
+    public partial class Mentorensuche : Page
     {
-        public static MainWindow main;
-        public Mentor()
+        public Mentorensuche()
         {
             InitializeComponent();
-            main.createNav();
-        }
-
-        private void absenden_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
