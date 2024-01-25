@@ -128,5 +128,10 @@ namespace WPF_Mentoring.Pages
             Server_Manager.AddSchueler(main.schueler);
             main.rahmen_frame.Content = new Anmeldung();
         }
+
+        private void passwortCheck_Passwordbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
