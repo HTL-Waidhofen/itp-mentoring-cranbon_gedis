@@ -33,9 +33,6 @@
                                 
                             </ComboBox>
                         </StackPanel>
-
-                        
-
                         <ui:Button Content="Weiter"  Icon="ArrowRight12" Appearance="Primary" Margin="65,15,0,0" Click="Button_Click" Cursor="IBeam" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="40,0,0,0">

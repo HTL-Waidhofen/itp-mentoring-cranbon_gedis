@@ -27,7 +27,7 @@ namespace WPF_Mentoring.Pages
     public partial class Registration : Page
     {
         public static MainWindow main;
-        private List<object> ausgewaehlteFaecher = new List<object>();
+        private List<string> ausgewaehlteFaecher = new List<string>();
 
         public Registration()
         {
@@ -48,7 +48,7 @@ namespace WPF_Mentoring.Pages
             if (checkBox != null)
             {
                 
-                ausgewaehlteFaecher.Add(checkBox.Content);
+                ausgewaehlteFaecher.Add(checkBox.Content.ToString());
                 ChosenSubjectsLabelUpdater();
             }
         }
@@ -60,14 +60,13 @@ namespace WPF_Mentoring.Pages
             if (checkBox != null)
             {
                
-                ausgewaehlteFaecher.Remove(checkBox.Content);
+                ausgewaehlteFaecher.Remove(checkBox.Content.ToString());
                 ChosenSubjectsLabelUpdater();
                 
             }
         }
         private void ChosenSubjectsLabelUpdater()
         {
-               
                 string ergebnisString = string.Join(", ", ausgewaehlteFaecher);
             chosen_subjects_label.Text = "Ausgewählte Fächer: " + ergebnisString;
         }
@@ -110,10 +109,24 @@ namespace WPF_Mentoring.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if(email.Text == "" || name.Text == "" || password.Password == "" || passwortCheck_Passwordbox.Password == "" || stufe.Text == "" || abteilung.Text == "")
+            {
+                System.Windows.MessageBox.Show("Bitte füllen Sie alle Felder aus!", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             if(isMentor.IsChecked == true)
             {
-                Benutzer benutzer = new Benutzer(email.Text, name.Text, password.Text, true);
+                main.schueler = new Schueler(email.Text, name.Text, password.Password, (stufe.Text+abteilung.Text), ausgewaehlteFaecher);
+                main.schueler.isMentor = true;
             }
+            else
+            {
+                main.schueler = new Schueler(email.Text, name.Text, password.Password, (stufe.Text + abteilung.Text), ausgewaehlteFaecher);
+                main.schueler.isMentor = false;
+            }
+            Server_Manager.AddAcc(new Benutzer(email.Text, name.Text, main.schueler.Password, main.schueler.isMentor));
+            Server_Manager.AddSchueler(main.schueler);
+            main.rahmen_frame.Content = new Anmeldung();
         }
 
         private void passwortCheck_Passwordbox_TextChanged(object sender, TextChangedEventArgs e)

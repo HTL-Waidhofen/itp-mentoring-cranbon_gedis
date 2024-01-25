@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:ITP_Mentoring_WPF"
         mc:Ignorable="d"
         Background="#272f34"
-        Title="MainWindow" Height="450" Width="800" >
+        Title="MainWindow" Height="450" Width="800" Icon="./mentor.png">
     <DockPanel>
         <Frame x:Name="NavTabUI" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Margin="10 50 10 10" ></Frame>
         <Frame x:Name="rahmen_frame" NavigationUIVisibility="Hidden" ></Frame>
