@@ -109,6 +109,11 @@ namespace WPF_Mentoring.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if(email.Text == "" || name.Text == "" || password.Password == "" || passwortCheck_Passwordbox.Password == "" || stufe.Text == "" || abteilung.Text == "")
+            {
+                System.Windows.MessageBox.Show("Bitte füllen Sie alle Felder aus!", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             if(isMentor.IsChecked == true)
             {
                 main.schueler = new Schueler(email.Text, name.Text, password.Password, (stufe.Text+abteilung.Text), ausgewaehlteFaecher);

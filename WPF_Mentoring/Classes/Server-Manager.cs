@@ -283,6 +283,7 @@ namespace WPF_Mentoring.Classes
                     {
                         if (rdr.Read())
                         {
+                            b.Email = email;
                             b.Klasse = rdr.GetString(1);
                             b.Fächer = rdr.GetString(2).Split(',').ToList();
                         }

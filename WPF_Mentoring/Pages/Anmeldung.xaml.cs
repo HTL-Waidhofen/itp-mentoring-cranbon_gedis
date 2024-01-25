@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_Mentoring.Classes;
+using WPF_Monitoring.Pages;
 
 namespace WPF_Mentoring.Pages
 {
@@ -57,7 +58,7 @@ namespace WPF_Mentoring.Pages
                         main.schueler = Server_Manager.loadSchuelerbyEmail(email.Text);
                         main.mentor = Server_Manager.loadMentorbyEmail(email.Text);
                         if(main.user.isMentor)
-                            main.rahmen_frame.Content = new Mentor();
+                            main.rahmen_frame.Content = new Einstellungen();
                         else
                             main.rahmen_frame.Content = new Übersicht();
                         
