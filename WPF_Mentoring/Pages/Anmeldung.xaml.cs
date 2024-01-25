@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_Mentoring.Classes;
+using WPF_Monitoring.Pages;
 
 namespace WPF_Mentoring.Pages
 {
@@ -51,12 +52,20 @@ namespace WPF_Mentoring.Pages
             {
                 try
                 {
-                    if (Authentification.IsCorrectPassword(password.Text, email.Text))
+                    if (Authentification.IsCorrectPassword(password.Password, email.Text))
                     {
-                        main.rahmen_frame.Content = new Übersicht();
                         main.user = Server_Manager.loadAccbyEmail(email.Text);
                         main.schueler = Server_Manager.loadSchuelerbyEmail(email.Text);
                         main.mentor = Server_Manager.loadMentorbyEmail(email.Text);
+                        if(main.user.isMentor)
+                            main.rahmen_frame.Content = new Einstellungen();
+                        else
+                            main.rahmen_frame.Content = new Übersicht();
+                        
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Wrong Password", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
                 catch (Exception)

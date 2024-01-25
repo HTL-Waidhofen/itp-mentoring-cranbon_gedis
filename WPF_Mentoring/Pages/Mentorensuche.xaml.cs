@@ -45,13 +45,19 @@ namespace WPF_Mentoring.Pages
         {
             public string Name { get; set; }
             public string Abteilung { get; set; }
+            public string Email { get; set; }
+            List<Mitarbeiter> mitarbeiterListe = new List<Mitarbeiter>
+            {
+            new Mitarbeiter { Name = "Max Mustermann", Stufe = "Senior", Abteilung = "Entwicklung", Email = "max.mustermann@example.com" }
+                
+            };
             public string AusgewählterWert { get; set; }
-            // Füge weitere Eigenschaften nach Bedarf hinzu.
         }
 
         private void SortierenButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            // Liste sortieren
+            daten = new ObservableCollection<string>(daten.OrderBy(x => x));
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

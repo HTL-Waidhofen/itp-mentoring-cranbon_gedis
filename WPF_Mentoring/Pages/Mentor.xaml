@@ -15,19 +15,19 @@
             <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Margin="20">
                 <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
                     <TextBlock Foreground="White" VerticalAlignment="Center">Name:</TextBlock>
-                    <TextBox Height="35" Width="250" Margin="48 0 0 0" IsEnabled="False" x:Name="name"></TextBox>
+                    <TextBox IsReadOnly="True" Height="35" Width="250" Margin="48 0 0 0" IsEnabled="False" x:Name="name"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
                     <TextBlock Foreground="White" VerticalAlignment="Center">Klasse:</TextBlock>
-                    <TextBox Height="35" Width="250" Margin="48 0 0 0" x:Name="klasse" IsEnabled="False"></TextBox>
+                    <TextBox Height="35" IsReadOnly="True" Width="250" Margin="48 0 0 0" x:Name="klasse" IsEnabled="False"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
                     <TextBlock Foreground="White" VerticalAlignment="Center">Fächer:</TextBlock>
-                    <TextBox Height="70" Width="250" Margin="48 0 0 0" x:Name="faecher" IsEnabled="False"></TextBox>
+                    <TextBox Height="70" Width="250" IsReadOnly="True" Margin="48 0 0 0" x:Name="faecher" IsEnabled="False"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
                     <TextBlock Foreground="White" VerticalAlignment="Center">Beschreibung:</TextBlock>
-                    <TextBox Height="70" Width="250" Margin="10 0 0 0" x:Name="beschreibung" IsEnabled="False"></TextBox>
+                    <TextBox Height="70" Width="250" IsReadOnly="True" Margin="10 0 0 0" x:Name="beschreibung" IsEnabled="False"></TextBox>
                 </StackPanel>
             </StackPanel>
 
