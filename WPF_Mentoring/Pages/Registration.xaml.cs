@@ -133,5 +133,18 @@ namespace WPF_Mentoring.Pages
         {
 
         }
+
+        private void isMentor_Checked(object sender, RoutedEventArgs e)
+        {
+            registration_stackpanel.Margin=new Thickness(0, 10, 0, 100);
+            subjects_stackpanel.Visibility = Visibility.Visible;
+
+        }
+
+        private void isMentor_Unchecked(object sender, RoutedEventArgs e)
+        {
+            registration_stackpanel.Margin = new Thickness(430, 10, 0, 100);
+            subjects_stackpanel.Visibility = Visibility.Hidden;
+        }
     }
 }

@@ -19,7 +19,7 @@
                 <Label FontSize="30" HorizontalAlignment="Center">Registrierung</Label>
                 <StackPanel Orientation="Horizontal" Height="585" Width="1130">
                     
-                    <StackPanel Orientation="Vertical" Margin="0,10,0,100" Height="555">
+                    <StackPanel x:Name="registration_stackpanel" Orientation="Vertical" Margin="430,10,0,100" Height="555" >
                         
                         <ui:Button Icon="ArrowLeft12" Command="NavigationCommands.BrowseBack" Margin="0,0,0,30">Back</ui:Button>
                         <Label MaxWidth="250">Name:</Label>
@@ -59,14 +59,14 @@
                         <Label x:Name="checkpassword" Foreground="Red"></Label>
                         <StackPanel Margin="0" Orientation="Horizontal">
                             <Label Margin="75,12,10,10">Mentor</Label>
-                            <CheckBox x:Name="isMentor" Margin="6"></CheckBox>
+                            <CheckBox Unchecked="isMentor_Unchecked" Checked="isMentor_Checked" x:Name="isMentor" Margin="6"></CheckBox>
 
                         </StackPanel>
                         
 
                         <ui:Button Content="Registrieren"  Icon="Person12" Appearance="Primary" Margin="65,0,0,0" Click="Button_Click"/>
                     </StackPanel>
-                    <StackPanel Orientation="Vertical" Margin="40,0,0,0">
+                    <StackPanel x:Name="subjects_stackpanel" Orientation="Vertical" Margin="40,0,0,0" Visibility="Hidden" >
                         <TreeView AllowDrop="True"  Width="600" Height="300" x:Name="subjects_TreeView" Margin="9,5" CheckBox.Checked="CheckBox_Checked" CheckBox.Unchecked="CheckBox_Unchecked">
                             <TreeViewItem Header="Allgemeine Fächer" IsExpanded="False">
                                 <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Angewandte Mathematik</CheckBox>
