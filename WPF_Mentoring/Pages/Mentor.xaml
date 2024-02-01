@@ -7,8 +7,39 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Mentor">
+    <Viewbox>
 
-    <DockPanel Background="White">
+        <DockPanel Background="#272f34">
 
-    </DockPanel>
+            <!-- Linke Spalte -->
+            <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Margin="20">
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                    <TextBlock Foreground="White" VerticalAlignment="Center">Name:</TextBlock>
+                    <TextBox IsReadOnly="True" Height="35" Width="250" Margin="48 0 0 0" IsEnabled="False" x:Name="name"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                    <TextBlock Foreground="White" VerticalAlignment="Center">Klasse:</TextBlock>
+                    <TextBox Height="35" IsReadOnly="True" Width="250" Margin="48 0 0 0" x:Name="klasse" IsEnabled="False"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                    <TextBlock Foreground="White" VerticalAlignment="Center">Fächer:</TextBlock>
+                    <TextBox Height="70" Width="250" IsReadOnly="True" Margin="48 0 0 0" x:Name="faecher" IsEnabled="False"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                    <TextBlock Foreground="White" VerticalAlignment="Center">Beschreibung:</TextBlock>
+                    <TextBox Height="70" Width="250" IsReadOnly="True" Margin="10 0 0 0" x:Name="beschreibung" IsEnabled="False"></TextBox>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Trennender Strich -->
+            <Border DockPanel.Dock="Left" BorderBrush="White" BorderThickness="1" Margin="20"/>
+
+            <!-- Rechte Spalte -->
+            <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Margin="20">
+                <TextBlock Foreground="White" FontSize="18" FontWeight="Bold" Margin="0 0 0 10">Terminvereinbarung</TextBlock>
+                <TextBox Height="200" Width="400" Margin="0 0 0 10" x:Name="terminvereinbarung">Hier können Sie einen Termin vereinbaren.</TextBox>
+                <Button Content="Absenden" Height="40" Width="150" HorizontalAlignment="Left" Margin="0 0 0 10" Click="absenden_Click"/>
+            </StackPanel>
+        </DockPanel>
+    </Viewbox>
 </Page>

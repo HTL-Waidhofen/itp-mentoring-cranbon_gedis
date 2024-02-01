@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_Mentoring.Classes;
+using WPF_Monitoring.Pages;
 
 namespace WPF_Mentoring.Pages
 {
@@ -25,6 +26,7 @@ namespace WPF_Mentoring.Pages
         public Übersicht()
         {
             InitializeComponent();
+            main.delNav();
         }
 
         private void mentoren(object sender, RoutedEventArgs e)
@@ -39,7 +41,7 @@ namespace WPF_Mentoring.Pages
 
         private void suche(object sender, RoutedEventArgs e)
         {
-            main.rahmen_frame.Content = new NAV();
+            main.rahmen_frame.Content = new Mentorensuche();
         }
 
         private void abmelden(object sender, RoutedEventArgs e)

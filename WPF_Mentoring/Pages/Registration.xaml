@@ -1,50 +1,155 @@
 ﻿<Page x:Class="WPF_Mentoring.Pages.Registration"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPF_Mentoring.Pages"
+      
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Registration" Background="White">
-
+      d:DesignHeight="300" d:DesignWidth="600"
+      xmlns:muxm="using:Microsoft.UI.Xaml.Media" xmlns:nav="clr-namespace:WPF_Mentoring"
+      Title="Registration" Background="#272f34">
     <Page.Resources></Page.Resources>
-    <Viewbox Stretch="Fill" StretchDirection="Both">
-        <DockPanel>
-            <Menu DockPanel.Dock="Top" Width="800" Height="20">
-                <MenuItem Header="Anmeldung" Click="MenuItem_Anmeldung_Click"></MenuItem>
-            </Menu>
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Vertical" Margin="10">
-                    <Label>Name:</Label>
-                    <TextBox x:Name="name_Textbox" IsReadOnly="False" IsEnabled="True"></TextBox>
-                    <Label>Klasse:</Label>
-                    <TextBox x:Name="klasse_Textbox"></TextBox>
-                    <Label>Email:</Label>
-                    <TextBox x:Name="eMail_Textbox"></TextBox>
-                    <Label>Passwort:</Label>
-                    <PasswordBox x:Name="passwort_Passwordbox" IsEnabled="True" Height="20" ></PasswordBox>
-                    <Label>Passwort erneut eingeben:</Label>
-                    <PasswordBox x:Name="passwortCheck_Passwordbox" IsEnabled="True" Height="20"></PasswordBox>
-                    <StackPanel Margin="10" Orientation="Horizontal">
-                        <Label>Mentor</Label>
-                        <CheckBox Margin="6"></CheckBox>
+    <Viewbox Stretch="Uniform" StretchDirection="Both">
+        <DockPanel LastChildFill="True" Width="1263">
+           
+            <StackPanel Orientation="Vertical" Width="1099">
+                
+                <Label FontSize="30" HorizontalAlignment="Center">Registrierung</Label>
+                <StackPanel Orientation="Horizontal" Height="585" Width="1130">
+                    
+                    <StackPanel x:Name="registration_stackpanel" Orientation="Vertical" Margin="430,10,0,100" Height="555" >
+                        
+                        <ui:Button Icon="ArrowLeft12" Command="NavigationCommands.BrowseBack" Margin="0,0,0,30">Back</ui:Button>
+                        <Label MaxWidth="250">Name:</Label>
+                        <TextBox x:Name="name" IsReadOnly="False" IsEnabled="True" Width="250"></TextBox>
+                        <StackPanel Orientation="Horizontal">
+                            <Label MaxWidth="250" Margin="0,10,0,0">Klasse:</Label>
+                            <Label MaxWidth="250" Margin="60,10,0,0">Abteilung:</Label>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                            
+                            <ComboBox Width="80" x:Name="stufe" >
+                                <ComboBoxItem>1</ComboBoxItem>
+                                <ComboBoxItem>2</ComboBoxItem>
+                                <ComboBoxItem>3</ComboBoxItem>
+                                <ComboBoxItem>4</ComboBoxItem>
+                                <ComboBoxItem>5</ComboBoxItem>
+                            </ComboBox>
+                            <ComboBox Width="155" Margin="15,0,0,0" x:Name="abteilung">
+                                <ComboBoxItem>IT</ComboBoxItem>
+                                <ComboBoxItem>WING</ComboBoxItem>
+                                <ComboBoxItem>Mechatronik</ComboBoxItem>
+                                <ComboBoxItem>Maschienenbau</ComboBoxItem>
+                                <ComboBoxItem>ETEC</ComboBoxItem>
+                                
+                            </ComboBox>
+
+
+                        </StackPanel>
+
+                        <Label MaxWidth="250" Margin="0,10,0,0">Email:</Label>
+                        <TextBox x:Name="email" MaxWidth="250"></TextBox>
+                        <Label Margin="0,10,0,0">Passwort:</Label>
+                        <PasswordBox x:Name="password" IsEnabled="True" MaxWidth="250" PasswordChanged="passwordCheck"  PasswordChar="●"></PasswordBox>
+                        <Label Margin="0,10,0,0">Passwort erneut eingeben:</Label>
+                        <PasswordBox  x:Name="passwortCheck_Passwordbox" IsEnabled="True" MaxWidth="250" PasswordChanged="passwordCheck"  PasswordChar="●"></PasswordBox>
+                        <Label x:Name="checkpassword" Foreground="Red"></Label>
+                        <StackPanel Margin="0" Orientation="Horizontal">
+                            <Label Margin="75,12,10,10">Mentor</Label>
+                            <CheckBox Unchecked="isMentor_Unchecked" Checked="isMentor_Checked" x:Name="isMentor" Margin="6"></CheckBox>
+
+                        </StackPanel>
+                        
+
+                        <ui:Button Content="Registrieren"  Icon="Person12" Appearance="Primary" Margin="65,0,0,0" Click="Button_Click"/>
+                    </StackPanel>
+                    <StackPanel x:Name="subjects_stackpanel" Orientation="Vertical" Margin="40,0,0,0" Visibility="Hidden" >
+                        <TreeView AllowDrop="True"  Width="600" Height="300" x:Name="subjects_TreeView" Margin="9,5" CheckBox.Checked="CheckBox_Checked" CheckBox.Unchecked="CheckBox_Unchecked">
+                            <TreeViewItem Header="Allgemeine Fächer" IsExpanded="False">
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Angewandte Mathematik</CheckBox>
+                                <CheckBox  Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Deutsch</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Englisch</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">GGP</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Naturwissenschaften</CheckBox>
+                            </TreeViewItem>
+
+                            <TreeViewItem Header="Mechatronik Fachschule" IsExpanded="False">
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Angewandte Informatik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Unternehmensführung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Konstruktion und Projektmanagement</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Mechatronische Systeme</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Fertigungstechnik und Mechanik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Informationstechnik und Automatisierung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Produktionstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Laboratorium</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Werkstätte und Produktionstechnik</CheckBox>
+                            </TreeViewItem>
+
+                            <TreeViewItem Header="Maschinenbau" IsExpanded="False">
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Wirtschaft und Recht</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Konstruktion und Projektmanagement</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Technische Mechanik und Berechnung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Fertigungstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Maschinen und Anlagen</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Automatisierungstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Elektrotechnik und Elektronik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Angewandte Informatik und Informationstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Robotik und Prozessdatenverarbeitung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Laboratorium</CheckBox>
+
+                            </TreeViewItem>
+
+                            <TreeViewItem Header="Elektrotechnik" IsExpanded="False">
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Wirtschaft und Recht</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Energiesysteme</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Automatisierungstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Antriebstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Industrieelektronik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Fachspezifische Informationstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Computergeschützte Projektentwicklung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Laboratorium</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Werkstätte und Produktionstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Schulautonome Vertiefungsgegenstände</CheckBox>
+                            </TreeViewItem>
+
+                            <TreeViewItem Header="Wirtschaftsingenieure – Maschinenbau" IsExpanded="False">
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Unternehmensführung u. Wirtschaftsrecht mit Übungen in (Business Englisch)</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Betriebstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Informatik und Informationssysteme</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Konstruktion und Berechnung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Werkstoff- und Fertigungstechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Maschinen, Anlagen, Automatisierung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Laboratorium</CheckBox>
+                            </TreeViewItem>
+
+                            <TreeViewItem Header="Informationstechnik" IsExpanded="False">
+                                <CheckBox  Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Wirtschaft und Recht</CheckBox>
+                                <CheckBox  Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Softwareentwicklung</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Informationstechnische Projekte</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Informationssysteme</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Systemtechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Cloud Computing und industrielle Technologien</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Medientechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">Netzwerktechnik</CheckBox>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">IT-Sicherheit</CheckBox>
+                            </TreeViewItem>
+
+                        </TreeView>
+
+
+                        <TextBox IsReadOnly="True" FontSize="18" x:Name="chosen_subjects_label" MaxWidth="590" Margin="30,0,0,0" Height="200" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" AllowDrop="True" Cursor="IBeam"/>
 
                     </StackPanel>
-                    <Button>Registrieren</Button>
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical">
-                    <TextBox x:Name="searchTextBox" Margin="10" TextChanged="SearchBox_TextChanged" Width="200px"/>
-
-                    <ListBox Margin="100,10,10,10" Width="500" Height="400" x:Name="subjects_Listbox" SelectionMode="Multiple">
-
-                    </ListBox>
-                </StackPanel>
             </StackPanel>
-
+            
+           
         </DockPanel>
     </Viewbox>
 </Page>
-
+    
     

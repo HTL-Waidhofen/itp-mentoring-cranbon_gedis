@@ -1,0 +1,19 @@
+﻿<Page x:Class="WPF_Mentoring.NavTab"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_Mentoring.Pages" xmlns:nav="clr-namespace:WPF_Mentoring"
+      mc:Ignorable="d" 
+      Background="#272f34"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NavTab">
+
+    <Grid  ButtonBase.Click="Grid_Click">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+            <nav:NavButton Text="Übersicht" Foreground="White" ImageSource="/ubersicht.png" NavUri="/Pages/Übersicht.xaml"/>
+            <nav:NavButton Text="NAV" Foreground="White" ImageSource="/navig.png" NavUri="/Pages/Mentorensuche.xaml"/>
+            <nav:NavButton Text="Einstellungen" Foreground="White" ImageSource="/einstellungen.png" NavUri="/Pages/Einstellungen.xaml"/>
+        </StackPanel>
+    </Grid>
+</Page>

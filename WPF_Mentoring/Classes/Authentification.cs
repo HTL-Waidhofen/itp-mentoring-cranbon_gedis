@@ -17,31 +17,34 @@ namespace WPF_Mentoring.Classes
     {
         public static bool IsValidEmail(string email)
         {
-            string pattern = @"^[a-zA-Z]+\.[a-zA-Z]+@hltwy\.at$";
+            string pattern = @"^[a-zA-Z]+\.[a-zA-Z]+@htlwy\.at$";
             return Regex.IsMatch(email, pattern);
         }
-        public bool IsCorrectPassword(string password, string email)
+        public static bool IsCorrectPassword(string password, string email)
         {
-            string connectionString = "Data Source=Mentoring.db;Version=3;";
+            string connectionString = "DataSource=../../../Datenbank/Mentoring.db;Version=3;";
 
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            using (var con = new SQLiteConnection(connectionString))
             {
-                connection.Open();
-                using (SQLiteCommand command = new SQLiteCommand("SELECT password FROM Users WHERE email = @Email", connection))
+                con.Open();
+                using (var cmd = new SQLiteCommand(con))
                 {
-                    command.Parameters.AddWithValue("@Email", email);
-
-                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    cmd.CommandText = "SELECT * FROM Account WHERE email = @email";
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
                     {
-                        if (reader.Read())
+                        if (rdr.Read())
                         {
-                            string correctPassword = reader.GetString(2);
-                            return password == correctPassword;
+                            string a = rdr.GetString(2);
+                            return password == rdr.GetString(2);
                         }
                         else
                         {
                             return false;
                         }
+
                     }
                 }
             }
@@ -58,9 +61,8 @@ namespace WPF_Mentoring.Classes
             }
             return authenCode;
         }
-        public void SendEmail(string toEmail)
+        public static void SendEmail(string toEmail,string code)
         {
-            string code = GetAuthenCode();
             var fromAddress = new MailAddress("CranbonGedis@outlook.de");
             var toAddress = new MailAddress(toEmail);
             const string fromPassword = "CraN8onGeydis#3AHIT";
