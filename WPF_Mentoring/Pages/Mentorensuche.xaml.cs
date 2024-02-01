@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -40,19 +39,27 @@ namespace WPF_Mentoring.Pages
             MeineDaten.Add(new DeinDatenTyp { Name = "Wert3", Abteilung = "Wert4" });
 
             MeineDataGrid.ItemsSource = MeineDaten;
+            main.createNav();
 
         }
         public class DeinDatenTyp
         {
             public string Name { get; set; }
             public string Abteilung { get; set; }
+            public string Email { get; set; }
+            List<Mentor> mitarbeiterListe = new List<Mentor>
+            {
+                //New machen klasse Mitarbeiter gibts ned
+            //new Mentor { Name = "Max Mustermann", Stufe = "Senior", Abteilung = "Entwicklung", Email = "max.mustermann@example.com" }
+                
+            };
             public string AusgewählterWert { get; set; }
-            // Füge weitere Eigenschaften nach Bedarf hinzu.
         }
 
         private void SortierenButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            // Liste sortieren daten fehlt datentyp
+            //daten = new ObservableCollection<string>(daten.OrderBy(x => x));
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
