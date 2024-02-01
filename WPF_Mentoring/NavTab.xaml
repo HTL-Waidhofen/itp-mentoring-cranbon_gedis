@@ -12,7 +12,7 @@
     <Grid  ButtonBase.Click="Grid_Click">
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
             <nav:NavButton Text="Übersicht" Foreground="White" ImageSource="/ubersicht.png" NavUri="/Pages/Übersicht.xaml"/>
-            <nav:NavButton Text="NAV" Foreground="White" ImageSource="/navig.png" NavUri="/Pages/NAV.xaml"/>
+            <nav:NavButton Text="NAV" Foreground="White" ImageSource="/navig.png" NavUri="/Pages/Mentorensuche.xaml"/>
             <nav:NavButton Text="Einstellungen" Foreground="White" ImageSource="/einstellungen.png" NavUri="/Pages/Einstellungen.xaml"/>
         </StackPanel>
     </Grid>

@@ -53,7 +53,7 @@ namespace WPF_Mentoring.Classes
 
                 using (var cmd = new SQLiteCommand(con))
                 {
-                    cmd.CommandText = "INSERT INTO Account(email, name,password,isMentor) VALUES(@email,@name,@password,@isMentor)";
+                    cmd.CommandText = "INSERT INTO Account(email, name,password,isMentor) VALUES(@email,@name,@password,@isMentor);";
                     cmd.Parameters.AddWithValue("@email", person.Email);
                     cmd.Parameters.AddWithValue("@name", person.Name);
                     cmd.Parameters.AddWithValue("@password", person.Password);
@@ -73,11 +73,11 @@ namespace WPF_Mentoring.Classes
 
                 using (var cmd = new SQLiteCommand(con))
                 {
-                    cmd.CommandText = "UPDATE Account(email, name,password,isMentor) VALUES(@email,@name,@password,@isMentor)";
+                    cmd.CommandText = "UPDATE Account SET email = @email, name = @name, password = @password, isMentor = @isMentor WHERE email=@email";
                     cmd.Parameters.AddWithValue("@email", person.Email);
                     cmd.Parameters.AddWithValue("@name", person.Name);
                     cmd.Parameters.AddWithValue("@password", person.Password);
-                    cmd.Parameters.AddWithValue("@isMentor", false == person.isMentor ? 0 : 1);
+                    cmd.Parameters.AddWithValue("@isMentor", person.isMentor == false ? 0 : 1);
                     cmd.Prepare();
                     cmd.ExecuteNonQuery();
                 }
