@@ -120,5 +120,10 @@ namespace WPF_Mentoring.Pages
         {
 
         }
+
+        private void isMentor_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -59,7 +59,7 @@
                         <Label x:Name="checkpassword" Foreground="Red"></Label>
                         <StackPanel Margin="0" Orientation="Horizontal">
                             <Label Margin="75,12,10,10">Mentor</Label>
-                            <CheckBox x:Name="isMentor" Margin="6"></CheckBox>
+                            <CheckBox x:Name="isMentor" Margin="6" Checked="isMentor_Checked"></CheckBox>
 
                         </StackPanel>
                         
