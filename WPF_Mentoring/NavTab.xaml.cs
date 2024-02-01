@@ -44,6 +44,9 @@ namespace WPF_Mentoring
                 case "Einstellungen":
                     main.rahmen_frame.Content = new Einstellungen();
                     break;
+                case "Abmelden":
+                    main.rahmen_frame.Content = new Einstellungen();
+                    break;
             }
 
             

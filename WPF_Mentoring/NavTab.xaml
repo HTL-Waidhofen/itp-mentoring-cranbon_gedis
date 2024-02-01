@@ -14,6 +14,7 @@
             <nav:NavButton Text="Übersicht" Foreground="White" ImageSource="/ubersicht.png" NavUri="/Pages/Übersicht.xaml"/>
             <nav:NavButton Text="NAV" Foreground="White" ImageSource="/navig.png" NavUri="/Pages/NAV.xaml"/>
             <nav:NavButton Text="Einstellungen" Foreground="White" ImageSource="/einstellungen.png" NavUri="/Pages/Einstellungen.xaml"/>
+            <nav:NavButton Text="Abmelden" Foreground="White" ImageSource="/ausloggen.png" NavUri="/Pages/Anmeldung.xaml"/>
         </StackPanel>
     </Grid>
 </Page>
