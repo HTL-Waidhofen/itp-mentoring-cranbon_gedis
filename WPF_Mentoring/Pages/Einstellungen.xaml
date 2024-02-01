@@ -33,14 +33,25 @@
                         <TextBlock FontSize="30" Foreground="White">Konto-Einstellungen</TextBlock>
                         <TextBlock FontSize="16" Foreground="White" Margin="0,10,0,0">E-Mail:</TextBlock>
                         <TextBox x:Name="Benutzername" Margin="0,0,0,10"/>
-                        <!-- Beispiel-Benutzername -->
-                        <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">Passwort:</TextBlock>
-                        <PasswordBox x:Name="Passwort" Margin="0,0,0,10"/>
-                        <!-- Beispiel-Passwort -->
-                        <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">Passwort wiederholen:</TextBlock>
-                        <PasswordBox x:Name="PasswortWiederholen" Margin="0,0,0,10"/>
-                        <Label x:Name="passwortNotMatch" Content="Die Passwörter stimmen nicht überein." Foreground="Red" Visibility="Collapsed" Margin="0,5,0,0"/>
-                        <Button Content="Speichern" Width="100" HorizontalAlignment="Left" Click="speichern"/>
+
+                        <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">altes Passwort:</TextBlock>
+                        <PasswordBox x:Name="PasswortAlt" Margin="0,0,0,10"/>
+
+                         <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">neues Passwort:</TextBlock>
+                         <PasswordBox x:Name="PasswortNeu" Margin="0,0,0,10"/>
+                         
+                        <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">neues Passwort wiederholen:</TextBlock>
+                        <PasswordBox x:Name="PasswortNeuWiederholen" Margin="0,0,0,10"/>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Label x:Name="passwortNotMatch" Content="Die Passwörter stimmen nicht überein." Foreground="Red" Visibility="Collapsed" Margin="0,5,0,0"/>
+                                <Button Content="Speichern" Width="100" HorizontalAlignment="Left" Click="speichern"/>
+
+                                <Label Margin="75,12,10,10" Foreground="White">Mentor</Label>
+                                <CheckBox x:Name="isMentor" Margin="6"></CheckBox>
+                            </StackPanel>
+                    
+                            
                     </StackPanel>
 
                     <!-- Beschreibung-Inhalt -->
@@ -65,7 +76,7 @@
 
                             <!-- Benutzerdaten anzeigen -->
                             <TextBlock FontSize="16" Foreground="White" Margin="0,10,0,0">Name:</TextBlock>
-                            <TextBlock x:Name="benutzername" FontSize="16" Foreground="White" Margin="0,0,0,10"/>
+                            <TextBlock x:Name="benutzername" FontSize="16" Foreground="White" Margin="0,0,0,10" Cursor=""/>
 
                             <TextBlock FontSize="16" Foreground="White" Margin="0,0,0,0">Klasse:</TextBlock>
                             <TextBlock x:Name="klasse" FontSize="16" Foreground="White" Margin="0,0,0,10"/>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_Mentoring;
+using WPF_Mentoring.Classes;
 
 namespace WPF_Monitoring.Pages
 {
@@ -61,19 +63,42 @@ namespace WPF_Monitoring.Pages
 
         private void speichern(object sender, RoutedEventArgs e)
         {
-            if (Passwort.Password != PasswortWiederholen.Password)
+            if (string.IsNullOrWhiteSpace(Benutzername.Text) || string.IsNullOrWhiteSpace(PasswortAlt.Password) || string.IsNullOrWhiteSpace(PasswortNeu.Password) || string.IsNullOrWhiteSpace(PasswortNeuWiederholen.Password))
+            {
+                MessageBox.Show("Bitte füllen Sie alle Felder aus!", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (!Authentification.IsValidEmail(Benutzername.Text))
+            {
+                MessageBox.Show("Bitte geben Sie eine gültige E-Mail-Adresse ein.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                
+            }
+            else if (Authentification.IsValidEmail(Benutzername.Text))
+            {
+                main.user.Password = PasswortNeu.Password;
+                main.user.Email = Benutzername.Text;
+
+                
+            }
+            else if (isMentor.IsChecked == true)
+            {
+                main.user.isMentor = true;
+            }
+            else
+            {
+                main.user.isMentor = false;
+            }
+
+
+            if (PasswortNeu.Password != PasswortNeuWiederholen.Password)
             {
                 // Passwörter stimmen nicht überein, Fehlermeldung anzeigen
                 passwortNotMatch.Visibility = Visibility.Visible;
                 return; // Stoppen Sie den weiteren Verarbeitungsfluss, um das Speichern zu verhindern.
             }
+            Server_Manager.UpdateMA(main.user);
+            MessageBox.Show("Ihre Daten wurden erfolgreich geändert.", "Erfolg", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            // Hier können Sie den Code für das Speichern der Kontoinformationen implementieren
-
-            // Wenn das Speichern erfolgreich war, können Sie das Label zurücksetzen
-            passwortNotMatch.Visibility = Visibility.Collapsed;
         }
-
         private void aktualisieren(object sender, RoutedEventArgs e)
         {
 
