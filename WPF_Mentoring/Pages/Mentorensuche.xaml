@@ -33,17 +33,17 @@
                                 
                             </ComboBox>
                         </StackPanel>
-                        <ui:Button Content="Weiter"  Icon="ArrowRight12" Appearance="Primary" Margin="65,15,0,0" Click="Button_Click" Cursor="IBeam" />
+                        <ui:Button Content="Weiter"  Icon="ArrowRight12" Appearance="Primary" Margin="65,15,0,0" Cursor="IBeam" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="40,0,0,0">
-                        <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding DeineObservableCollection}" x:Name="MeineDataGrid">
+                        <DataGrid x:Name="DataGridMentor" AutoGenerateColumns="True" ItemsSource="{Binding DeineObservableCollection}" >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Spaltenname" Binding="{Binding Eigenschaft}" CanUserSort="True"/>
-                                <DataGridTextColumn Header="Spaltenname" Binding="{Binding Eigenschaft}" CanUserSort="True"/>
-                                <DataGridTextColumn Header="Spaltenname" Binding="{Binding Eigenschaft}" CanUserSort="True"/>
-                                <DataGridTextColumn Header="Spaltenname" Binding="{Binding Eigenschaft}" CanUserSort="True"/>
+                                <DataGridTextColumn Header="Mentor Name" Width="150" Binding="{Binding Name}" CanUserSort="True"/>
+                                <DataGridTextColumn Header="Mentor Fach" Width="150" Binding="{Binding Fach}" CanUserSort="True"/>
+                                <DataGridTextColumn Header="Mentor Klasse" Width="150" Binding="{Binding Klasse}" CanUserSort="True"/>
                                 <!-- Weitere Spalten hinzufügen -->
                             </DataGrid.Columns>
+                            
                             </DataGrid>
 
 
